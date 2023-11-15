@@ -13,6 +13,7 @@ def count_nonzero(matrix, axis, index):
     Returns:
     - int: The number of non-zero elements.
     """
+
     if axis == 'row':
         # Count non-zero elements in the specified row
         return sum(1 for element in matrix[index] if element != 0)
@@ -71,35 +72,59 @@ def find_u_v_max_path(u,v,w):
                 add_num += count_nonzero(v, 'col', j) - 1
         res_mul_num.append(mul_num)
         res_add_num.append(add_num)
-    print("\r\nres_mul_num:", res_mul_num)
-    print("\r\nres_add_num:", res_add_num)    
+    #print("\r\nres_mul_num:", res_mul_num)
+    #print("\r\nres_add_num:", res_add_num)    
 
     # 按照复杂程度排序
     sorted_indices = sorted(range(len(res_mul_num)), key=lambda i: res_mul_num[i] + res_add_num[i],reverse=True)
-    print("\r\nSorted indices:", sorted_indices)
+    #print("\r\nSorted indices:", sorted_indices)
 
-    return sorted_indices[0]
+    max_path = sorted_indices[0]
+    path_num_max = res_mul_num[max_path] + res_add_num[max_path]
 
-def find_most_significant_adder(arr,arr_coe,index):
+    return (path_num_max,max_path)
+
+def find_w_max_path(arr):
+    non_zero_counts = np.count_nonzero(arr, axis=1)
+    row_with_max_non_zero = np.argmax(non_zero_counts)
+    return row_with_max_non_zero
+
+def find_most_significant_adder(arr,arr_coe,index,axis):
     arr_row = arr.shape[0]
     arr_col = arr.shape[1]
     bias_dict = {}
-    for i0 in range(arr_row):
-        if arr[i0][index] != 0:
-            for i1 in range(i0+1,arr_row):
-                if arr[i1][index] != 0:
-                    pe_num0 = arr[i0][index]
-                    pe_num1 = arr[i1][index]
-                    coe_ref0 = arr_coe[i0][index]
-                    coe_ref1 = arr_coe[i1][index]
-                    bias_dict[(i0,i1)] = 0
-                    for j in range(arr_col):
-                        if arr[i0][j] == pe_num0 and arr[i1][j] == pe_num1:
-                            ratio0 = arr_coe[i0][j]/coe_ref0
-                            ratio1 = arr_coe[i1][j]/coe_ref1
-                            if(ratio0 == ratio1):
-                                bias_dict[(i0,i1)] += 1
-
+    if axis == 'col':
+        for i0 in range(arr_row):
+            if arr[i0][index] != 0:
+                for i1 in range(i0+1,arr_row):
+                    if arr[i1][index] != 0:
+                        pe_num0 = arr[i0][index]
+                        pe_num1 = arr[i1][index]
+                        coe_ref0 = arr_coe[i0][index]
+                        coe_ref1 = arr_coe[i1][index]
+                        bias_dict[(i0,i1)] = 0
+                        for j in range(arr_col):
+                            if arr[i0][j] == pe_num0 and arr[i1][j] == pe_num1:
+                                ratio0 = arr_coe[i0][j]/coe_ref0
+                                ratio1 = arr_coe[i1][j]/coe_ref1
+                                if(ratio0 == ratio1):
+                                    bias_dict[(i0,i1)] += 1
+    elif axis == 'row':
+       for i0 in range(arr_col):
+            if arr[index][i0] != 0:
+                for i1 in range(i0+1,arr_row):
+                    if arr[index][i1] != 0:
+                        pe_num0 = arr[index][i0]
+                        pe_num1 = arr[index][i1]
+                        coe_ref0 = arr_coe[index][i0]
+                        coe_ref1 = arr_coe[index][i1]
+                        bias_dict[(i0,i1)] = 0
+                        for j in range(arr_row):
+                            if arr[j][i0] == pe_num0 and arr[j][i1] == pe_num1:
+                                ratio0 = arr_coe[j][i0]/coe_ref0
+                                ratio1 = arr_coe[j][i1]/coe_ref1
+                                if(ratio0 == ratio1):
+                                    bias_dict[(i0,i1)] += 1
     print(f"index:{index} bias：")
     for key, value in bias_dict.items():
         print(f"key: {key}, bias: {value}")
@@ -177,18 +202,13 @@ class PE:
         if pe_number0 >= 2:
             # pe的输入是上一个pe的输出
             i0 = f'pe{pe_number0}'
-            #self.coe0 = 1 if pe_number0 > 0 else -1
-            self.coe0 = 1
-        else:
+        #else:
             # pe的输入来自总线
-            self.coe0 = pe_number0
 
         if pe_number1 >= 2:
             i1 = f'pe{pe_number1}'
-            self.coe1 = 1
-        else:
+        #else:
             # pe的输入来自总线
-            self.coe1 = pe_number1
 
         self.typeofPE = typeofPE
         self.name = f"{typeofPE}_{i0}_{i1}"
@@ -197,7 +217,7 @@ class PE:
 
 
 
-def distribute_pe(u,v,w,index,arch,level,typeofPE,in0,in1):
+def distribute_pe(u,v,w,w_act,index,arch,level,typeofPE,in0,in1):
     # 如果level不存在，创建一个空列表
     if level not in arch:
         arch[level] = []
@@ -220,8 +240,8 @@ def distribute_pe(u,v,w,index,arch,level,typeofPE,in0,in1):
 
     # w的加法
     if typeofPE == 'w_add':
-        pe_number0 = w[index][in0]
-        pe_number1 = w[index][in1]
+        pe_number0 = w_act[index][in0]
+        pe_number1 = w_act[index][in1]
 
 
     # 创建PE
@@ -261,11 +281,21 @@ def coefficient_backup(u,v,w,u_coe,v_coe,w_coe):
 def refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,arch,level):
 
     # 刷新已分配的运算，两个元素，其中一个清零，另一个使用PE.number进行占位 
+    if level not in arch:
+        return
+
     for pe in arch[level]:
         # refresh u
         in0 = pe.in0
         in1 = pe.in1
         index = pe.index
+
+        print(f"refresh: pe{pe.pe_number}")
+        print(f"{pe.level}")
+        print(f"name: {pe.name}")
+        print(f"index: {pe.index}")
+        print(f"in0: {pe.in0}")
+        print(f"in1: {pe.in1}")
 
         if pe.typeofPE == 'u_add':
             for i in range(u.shape[1]):
@@ -290,10 +320,15 @@ def refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,arch,level):
                         u_coe[in0][i] = ratio0
                         u_coe[in1][i] = 0
             # 最后更新 index 位置
+            pe.coe0 = u_coe[in0][index]
+            pe.coe1 = u_coe[in1][index]
             u[in0][index] = pe.pe_number
             u[in1][index] = 0
-            u_coe[in0][index] = ratio0
+            u_coe[in0][index] = 1
             u_coe[in1][index] = 0
+
+            print(f"u:\r\n{u}")
+            print(f"u_coe:\r\n{u_coe}")
 
         if pe.typeofPE == 'v_add':
             for i in range(v.shape[1]):
@@ -318,12 +353,22 @@ def refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,arch,level):
                         v_coe[in0][i] = ratio0
                         v_coe[in1][i] = 0
             # 最后更新 index 位置
+            pe.coe0 = v_coe[in0][index]
+            pe.coe1 = v_coe[in1][index]
             v[in0][index] = pe.pe_number
             v[in1][index] = 0
-            v_coe[in0][index] = ratio0
+            v_coe[in0][index] = 1 
             v_coe[in1][index] = 0
+            print(f"v:\r\n{v}")
+            print(f"v_coe:\r\n{v_coe}")
 
         if pe.typeofPE == 'mul':
+            pe.coe0 = u_coe[in0][index]
+            pe.coe1 = v_coe[in1][index]
+            u[in0][index] = 0
+            v[in1][index] = 0
+            u_coe[in0][index] = 0
+            v_coe[in1][index] = 0
             for i in range(w.shape[0]):
                 ratio = w_coe[i][index]
                 if (ratio != 0):
@@ -332,12 +377,13 @@ def refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,arch,level):
         if pe.typeofPE == 'w_add':
             for i in range(w.shape[0]):
                 if i != index :
-                    if(w_act[i][in0] != 0 and w_act[i][in1] != 0):
-                        if(w_act[index][in0] == w_act[i][in0] and w_act[index][in1] == w_act[i][in1]):
-                            coe0 = w_coe[i][in0];
-                            coe1 = w_coe[i][in1];
-                            coe_ref0 = w_coe[index][in0]
-                            coe_ref1 = w_coe[index][in1]
+                    if(w_act[i][in0] != 0 and w_act[i][in1] != 0) and (w_act[index][in0] == w_act[i][in0] and w_act[index][in1] == w_act[i][in1]):
+                        coe0 = w_coe[i][in0];
+                        coe1 = w_coe[i][in1];
+                        coe_ref0 = w_coe[index][in0]
+                        coe_ref1 = w_coe[index][in1]
+                    else:
+                        continue
                     
                     ratio0 = coe0/coe_ref0
                     ratio1 = coe1/coe_ref1
@@ -354,9 +400,11 @@ def refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,arch,level):
                         #else:
                         #    # 将 PE 对象添加到相应级别的列表中
                         #    arch[level].append(new_pe)
+            pe.coe0 = w_coe[index][in0]
+            pe.coe1 = w_coe[index][in1]
             w_act[index][in0] = pe.pe_number
             w_act[index][in1] = 0
-            w_coe[index][in0] = ratio0
+            w_coe[index][in0] = 1
             w_coe[index][in1] = 0
 
 
@@ -560,56 +608,60 @@ def print_equations(u, v, w):
     print(u_coe)
     print(v_coe)
     print(w_coe)
+    
+    (total_level,max_path_col) = find_u_v_max_path(u,v,w)
 
-    max_path_col = find_u_v_max_path(u,v,w)
+    for level_n in range(total_level):
 
-    for i in range(u.shape[1]):
-        u_nonzero_index = nonzero_indices(u, 'col', i)
-        v_nonzero_index = nonzero_indices(v, 'col', i)
-        u_nonzero_count = count_nonzero(u, 'col', i)
-        v_nonzero_count = count_nonzero(v, 'col', i)
-        if (u_nonzero_count == 1) & v_nonzero_count == 1):
-            in0 = u_nonzero_index[0]
-            in1 = v_nonzero_index[0]
-            distribute_pe(u,v,w,i,pe_arch,'level0','mul',in0,in1)
-        elif (count_nonzero(u, 'col', i) == 1) & (count_nonzero(v, 'col', i) == 2):
-            # level0 分配一个加法器
-            # level1 分配一个乘法器
-            level0_calc += f"add{add_index}: b{v_nonzero_index[0]} + b{v_nonzero_index[1]}\r\n"
-            level1_calc += f"mul{mul_index}: b{u_nonzero_index[0]} * add{add_index}\r\n"
-            mul_index += 1
-            add_index += 1
-            col_distributed.append(i) 
-        elif (count_nonzero(u, 'col', i) == 2) & (count_nonzero(v, 'col', i) == 1):
-            # level0 分配一个加法器
-            # level1 分配一个乘法器
-            level0_calc += f"add{add_index}: b{u_nonzero_index[0]} + b{u_nonzero_index[1]}\r\n"
-            level1_calc += f"mul{mul_index}: b{v_nonzero_index[0]} * add{add_index}\r\n"
-            mul_index += 1
-            add_index += 1
-            col_distributed.append(i) 
-        elif (count_nonzero(u, 'col', i) == 2) & (count_nonzero(v, 'col', i) == 2):
-            # level0 分配两个加法器
-            # level1 分配一个乘法器
-            level0_calc += f"add{add_index}: b{u_nonzero_index[0]} + b{u_nonzero_index[1]}\r\n"
-            add_index += 1
-            level0_calc += f"add{add_index}: b{v_nonzero_index[0]} + b{v_nonzero_index[1]}\r\n"
-            level1_calc += f"mul{mul_index}: add{add_index - 1} * add{add_index}\r\n"
-            mul_index += 1
-            add_index += 1
-            col_distributed.append(i) 
-    if(count_nonzero(u,'col',max_path_col) >= 2):
-        (u_in0,u_in1) = find_most_significant_adder(u,u_coe,max_path_col)
-    if(count_nonzero(v,'col',max_path_col) >= 2):
-        (v_in0,v_in1) = find_most_significant_adder(v,v_coe,max_path_col)
+        (this_total_path,max_path_col) = find_u_v_max_path(u,v,w)
+        max_path_row = find_w_max_path(w_act)
 
-    print(f'u most significant:{u_in0},{u_in1}')
-    print(f'v most significant:{v_in0},{v_in1}')
+        u_nonzero_count = count_nonzero(u, 'col', max_path_col)
+        v_nonzero_count = count_nonzero(v, 'col', max_path_col)
+        w_nonzero_count = count_nonzero(w_act, 'row', max_path_row)
 
-    distribute_pe(u,v,w,max_path_col,pe_arch,'level0','u_add',u_in0,u_in1)
-    distribute_pe(u,v,w,max_path_col,pe_arch,'level0','v_add',v_in0,v_in1)
+        if(u_nonzero_count > 2):
+            (u_in0,u_in1) = find_most_significant_adder(u,u_coe,max_path_col,'col')
+            distribute_pe(u,v,w,w_act,max_path_col,pe_arch,f'level{level_n}','u_add',u_in0,u_in1)
+            print(f'u most significant:{u_in0},{u_in1}')
+        if(v_nonzero_count > 2):
+            (v_in0,v_in1) = find_most_significant_adder(v,v_coe,max_path_col,'col')
+            distribute_pe(u,v,w,w_act,max_path_col,pe_arch,f'level{level_n}','v_add',v_in0,v_in1)
+            print(f'v most significant:{v_in0},{v_in1}')
+        if(w_nonzero_count > 2):
+            (w_in0,w_in1) = find_most_significant_adder(w_act,w_coe,max_path_row,'row')
+            distribute_pe(u,v,w,w_act,max_path_col,pe_arch,f'level{level_n}','w_add',w_in0,w_in1)
+            print(f'w most significant:{w_in0},{v_in1}')
 
-    refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,pe_arch,'level0')
+        for i in range(u.shape[1]):
+            u_nonzero_index = nonzero_indices(u, 'col', i)
+            v_nonzero_index = nonzero_indices(v, 'col', i)
+            u_nonzero_count = count_nonzero(u, 'col', i)
+            v_nonzero_count = count_nonzero(v, 'col', i)
+            if (u_nonzero_count == 1) and (v_nonzero_count == 1):
+                in0 = u_nonzero_index[0]
+                in1 = v_nonzero_index[0]
+                distribute_pe(u,v,w,w_act,i,pe_arch,f'level{level_n}','mul',in0,in1)
+
+            if (u_nonzero_count == 2):
+                in0 = u_nonzero_index[0]
+                in1 = u_nonzero_index[1]
+                distribute_pe(u,v,w,w_act,i,pe_arch,f'level{level_n}','u_add',in0,in1)
+
+            if (v_nonzero_count == 2):
+                in0 = v_nonzero_index[0]
+                in1 = v_nonzero_index[1]
+                distribute_pe(u,v,w,w_act,i,pe_arch,f'level{level_n}','v_add',in0,in1)
+
+        for i in range(w.shape[0]):
+            w_act_nonzero_index = nonzero_indices(w_act, 'row', i) 
+            w_act_nonzero_count = count_nonzero(w_act, 'row', i) 
+            if(w_act_nonzero_count == 2):
+                in0 = w_act_nonzero_index[0]
+                in1 = w_act_nonzero_index[1]
+                distribute_pe(u,v,w,w_act,i,pe_arch,f'level{level_n}','w_add',in0,in1)
+
+        refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,pe_arch,f'level{level_n}')
 
 
     # 打印arch
