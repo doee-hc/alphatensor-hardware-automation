@@ -1,0 +1,1006 @@
+c1 = ( - m133 - m134 + m136 - m138 + m147 + m148 - m150 + m152 + m154 + m155 - m157 + m159 + m161 + m162 - m164 + m166 - m182 - m183 + m185 - m187 + m188 - m189 + m194 + m200 - m202 + m217 - m279 - m281 + m286 + m290 - m293 + m318 + m335)
+c2 = ( - m138 - m139 + m152 + m153 + m159 + m160 + m166 + m167 - m174 + m184 + m194 + m196 + m210 + m214 - m216 + m218 - m286 + m292 + m293 + m318 - m321 - m323 - m328)
+c3 = (m123 + m124 - m126 + m128 + m147 + m148 - m150 + m152 - m183 + m185 - m187 + m188 - m189 + m209 + m210 - m216 + m217 - m218 - m283 - m285 + m286 + m287 + m289 + m293 - m318)
+c4 = (m279 + m281 - m286 - m290 + m293 - m318 - m335 - m349 - m350 - m361 - m362 - m368)
+c5 = (m286 - m292 - m293 - m318 + m321 + m323 + m328 + m348 - m349 - m350 - m361 + m363 + m384)
+c6 = (m283 + m285 - m286 - m287 - m289 - m293 + m318 - m351 - m367 - m368 - m380 - m382)
+c7 = (m282 + m284 - m286 - m293 + m320 - m330 + m332 - m355 + m368 - m370 - m375 + m376 - m380)
+c8 = (m9 - m10 + m11 - m12 - m13 + m14 + m15 + m16 + m17 + m18 + m19 - m20 + m21 + m22 - m23 - m24 + m29 - m30 + m31 + m32 + m33 - m34 + m35 - m36 - m136 - m137 + m150 + m151 + m157 + m158 + m164 + m165 - m179 + m180 - m186 + m191 + m192 + m193 + m200 + m203 - m207 - m211 - m275 + m277 + m280 + m283 - m293 - m312 - m313 - m315 + m322)
+c9 = (m1 - m2 + m3 + m4 + m5 - m6 + m7 + m8 + m25 + m26 - m27 + m28 + m37 + m38 + m39 + m40 - m133 - m135 - m137 + m139 + m147 + m149 + m151 - m153 + m154 + m156 + m158 - m160 + m161 + m163 + m165 - m167 - m172 - m181 - m192 - m193 + m199 + m200 - m203 - m208 - m213 + m285 - m286 - m291 - m295 + m296 + m297 + m301 - m302)
+c10 = (m9 + m10 + m11 + m12 + m13 + m14 - m15 + m16 - m17 + m18 + m19 + m20 - m21 + m22 - m23 + m24 + m29 + m30 - m31 + m32 - m33 - m34 + m35 + m36 + m126 + m127 + m150 + m151 - m179 + m180 + m182 - m186 + m191 - m197 - m207 - m208 - m218 - m283 - m285 + m286 + m287 + m293 - m296 - m301 + m302 + m305 + m315)
+c11 = (m275 - m277 - m280 - m283 + m293 + m312 + m313 + m315 - m322 + m345 + m347 + m348 + m364 + m366 + m368)
+c12 = ( - m285 + m286 + m291 + m295 - m296 - m297 - m301 + m302 + m345 + m347 - m363 + m364 - m365 - m379)
+c13 = (m283 + m285 - m286 - m287 - m293 + m296 + m301 - m302 - m305 - m315 + m357 - m359 + m363 - m365 + m371 - m377)
+c14 = (m287 - m288 + m298 + m305 - m307 + m333 + m334 + m336 + m346 - m358 + m363 - m365 + m372)
+c15 = ( - m1 - m2 - m3 + m4 - m5 - m6 + m7 - m8 + m17 + m18 + m19 - m20 - m21 - m22 + m23 + m24 + m29 - m30 + m31 + m32 + m33 - m34 + m35 - m36 + m133 + m134 - m136 + m138 + m140 + m141 - m143 + m145 + m174 - m175 + m176 + m179 - m181 - m187 + m188 + m198 + m275 - m276 + m280 - m282 + m293 + m311 - m312 + m336)
+c16 = (m9 - m10 - m11 + m12 + m13 + m14 + m15 - m16 - m25 - m26 + m27 - m28 + m37 + m38 + m39 + m40 + m138 + m139 + m145 + m146 + m172 + m173 + m174 - m175 + m176 + m177 - m178 + m186 - m187 + m188 + m190 + m207 - m284 + m286 + m291 + m298 - m299 + m302 - m310 + m324)
+c17 = (m1 + m2 - m3 + m4 + m5 - m6 - m7 - m8 - m17 + m18 + m19 + m20 + m21 - m22 + m23 - m24 - m29 - m30 + m31 - m32 + m33 + m34 - m35 - m36 - m123 - m124 + m126 - m128 + m131 + m140 + m141 - m143 + m145 + m154 + m155 - m157 + m159 + m168 + m169 - m171 - m172 - m173 + m183 - m184 - m186 - m190 + m195 - m207 - m288 - m296 - m308 - m314 + m315 + m325 - m332 + m334)
+c18 = ( - m275 + m276 - m280 + m282 - m293 - m311 + m312 - m336 - m340 - m350 - m361 - m362 + m364)
+c19 = (m284 - m286 - m291 - m298 + m299 - m302 + m310 - m324 - m338 + m347 - m361 + m364 - m365 - m379)
+c20 = (m288 + m296 + m308 + m314 - m315 - m325 + m332 - m334 - m342 + m343 + m356 + m361 + m364 + m378)
+c21 = ( - m282 - m284 + m286 + m293 + m298 - m299 + m302 - m314 - m332 + m336 + m339 - m341 + m344 + m361 - m364 - m381)
+c22 = ( - m1 + m2 - m3 - m4 - m9 + m10 + m11 - m12 + m21 - m22 - m23 + m24 + m33 + m34 + m35 + m36 + m136 + m137 + m143 + m144 - m187 + m191 + m193 + m203 - m205 - m207 - m211 - m278 + m291 + m293 - m309 + m316 - m321 + m337)
+c23 = (m5 + m6 - m7 + m8 + m13 - m14 - m15 - m16 - m17 - m18 - m19 + m20 + m25 - m26 + m27 + m28 - m29 + m30 - m31 - m32 - m37 + m38 + m39 - m40 + m133 + m135 + m137 - m139 + m140 + m142 + m144 - m146 + m176 + m177 - m187 + m190 - m203 + m207 - m208 - m212 - m291 - m293 + m302 - m303 - m318 + m321 + m323 + m328 + m329 - m337)
+c24 = (m5 + m6 + m7 - m8 + m13 - m14 + m15 + m16 - m17 - m18 + m19 - m20 + m25 - m26 - m27 - m28 - m29 + m30 + m31 + m32 + m37 + m38 - m39 - m40 - m126 - m127 + m130 + m143 + m144 + m157 + m158 + m171 + m185 - m187 + m201 - m207 - m208 - m216 + m297 - m302 + m303 + m305 + m315 - m317 + m318 + m319 - m328 - m329 + m337)
+c25 = (m278 - m291 - m293 + m309 - m316 + m321 - m337 + m340 - m342 + m349 + m350 - m351 - m353 + m361 + m362 - m371)
+c26 = (m291 + m293 - m302 + m303 + m318 - m321 - m323 - m328 - m329 + m337 + m338 - m345 - m347 - m356 - m357 - m364 + m365 - m367 - m373 + m379)
+c27 = ( - m297 + m302 - m303 - m305 - m315 + m317 - m318 - m319 + m328 + m329 - m337 + m367 - m371 - m378)
+c28 = (m302 - m303 + m304 - m310 + m314 - m318 + m323 - m326 + m327 + m328 + m329 - m336 - m337 - m346 + m357 + m358 - m359 + m367 + m369 - m372 + m374 - m378)
+c29 = (m97 + m101 + m102 - m103 - m104 + m111 + m112 + m113 + m180 - m186 + m188 + m192 + m194 - m206 + m217 + m275 - m278 - m279 + m280 - m281 + m286 + m290 + m318)
+c30 = (m98 + m100 + m101 + m102 - m103 + m107 + m111 + m114 + m116 + m117 + m122 + m173 - m175 - m178 + m186 + m188 + m194 + m215 - m275 - m280 + m281 - m286 + m302 - m303 + m316 + m331)
+c31 = (m97 + m99 + m100 - m104 - m105 + m108 + m112 + m120 - m186 + m188 - m189 + m204 + m209 + m210 + m217 - m277 + m278 + m279 + m294 + m301 - m302 - m305 - m318)
+c32 = ( - m275 + m278 + m279 - m280 + m281 - m286 - m290 - m318 + m340 + m341 + m349 + m350 + m354 + m355 + m361 + m362 + m372)
+c33 = (m275 + m280 - m281 + m286 - m302 + m303 - m316 - m331 + m338 - m339 - m345 - m346 - m347 - m352 - m364 + m365 - m370 + m379)
+c34 = (m277 - m278 - m279 - m294 - m301 + m302 + m305 + m318 + m351 + m355 + m360 + m367 + m372 + m376 + m381 + m382 + m383)
+c35 = (m276 - m278 - m279 - m299 - m300 + m302 + m306 - m314 + m318 + m370 - m372 + m381)
+c36 = ( - m46 + m48 - m52 + m54 - m56 + m70 + m72 + m74 + m96)
+c37 = ( - m42 + m50 - m51 - m54 + m58 + m60 - m62 + m76)
+c38 = ( - m42 - m48 + m58 + m60 - m64 + m78 - m80 + m95)
+c39 = (m46 - m48 + m52 - m54 + m56 - m70 - m72 - m74 - m96 - m133 - m134 + m136 - m138 + m147 + m148 - m150 + m152 + m154 + m155 - m157 + m159 + m161 + m162 - m164 + m166 + m232 - m238 - m250 - m256 + m266 + m271 - m349 - m350 - m361 - m362 - m368)
+c40 = (m42 - m50 + m51 + m54 - m58 - m60 + m62 - m76 - m138 - m139 + m152 + m153 + m159 + m160 + m166 + m167 - m226 + m228 + m230 - m232 - m236 - m237 - m248 + m253 - m255 + m256 + m259 - m271 + m348 - m349 - m350 - m361 + m363 + m384)
+c41 = (m42 + m48 - m58 - m60 + m64 - m78 + m80 - m95 + m123 + m124 - m126 + m128 + m147 + m148 - m150 + m152 + m226 - m228 - m230 + m232 + m237 - m253 + m255 - m256 - m259 + m270 + m271 - m274 - m351 - m367 - m368 - m380 - m382)
+c42 = (m128 + m129 + m152 + m153 - m232 - m248 + m256 + m270 - m271 - m355 + m368 - m370 - m375 + m376 - m380)
+c43 = (m9 - m10 + m11 - m12 - m13 + m14 + m15 + m16 + m17 + m18 + m19 - m20 + m21 + m22 - m23 - m24 + m29 - m30 + m31 + m32 + m33 - m34 + m35 - m36 + m41 + m49 - m66 + m68 - m69 + m82 + m84 + m94)
+c44 = (m1 - m2 + m3 + m4 + m5 - m6 + m7 + m8 + m25 + m26 - m27 + m28 + m37 + m38 + m39 + m40 - m41 - m44 - m47 - m51 + m54 + m63 - m65 + m67 + m78 - m85 + m86 + m93)
+c45 = (m9 + m10 + m11 + m12 + m13 + m14 - m15 + m16 - m17 + m18 + m19 + m20 - m21 + m22 - m23 + m24 + m29 + m30 - m31 + m32 - m33 - m34 + m35 + m36 - m41 - m49 - m61 + m63 - m68 - m83)
+c46 = ( - m41 - m49 + m66 - m68 + m69 - m82 - m84 - m94 - m136 - m137 + m150 + m151 + m157 + m158 + m164 + m165 - m241 - m262 + m265 + m271 + m272 + m345 + m347 + m348 + m364 + m366 + m368)
+c47 = (m41 + m44 + m47 + m51 - m54 - m63 + m65 - m67 - m78 + m85 - m86 - m93 - m133 - m135 - m137 + m139 + m147 + m149 + m151 - m153 + m154 + m156 + m158 - m160 + m161 + m163 + m165 - m167 + m227 - m245 - m255 - m271 - m272 + m345 + m347 - m363 + m364 - m365 - m379)
+c48 = (m41 + m49 + m61 - m63 + m68 + m83 + m126 + m127 + m150 + m151 - m227 + m245 - m246 + m255 - m256 - m258 - m261 - m264 - m267 + m271 - m273 + m357 - m359 + m363 - m365 + m371 - m377)
+c49 = (m123 + m125 + m127 - m129 + m147 + m149 + m151 - m153 - m239 - m260 - m264 - m267 - m269 - m271 - m272 + m346 - m358 + m363 - m365 + m372)
+c50 = ( - m1 - m2 - m3 + m4 - m5 - m6 + m7 - m8 + m17 + m18 + m19 - m20 - m21 - m22 + m23 + m24 + m29 - m30 + m31 + m32 + m33 - m34 + m35 - m36 - m44 + m45 - m46 + m47 + m48 - m52 + m55 - m56 + m57 + m59 - m66 + m74 - m79 + m81)
+c51 = (m9 - m10 - m11 + m12 + m13 + m14 + m15 - m16 - m25 - m26 + m27 - m28 + m37 + m38 + m39 + m40 - m42 + m43 + m44 + m50 + m58 - m59 - m62 + m66 + m70 + m76 + m92)
+c52 = (m1 + m2 - m3 + m4 + m5 - m6 - m7 - m8 - m17 + m18 + m19 + m20 + m21 - m22 + m23 - m24 - m29 - m30 + m31 - m32 + m33 + m34 - m35 - m36 - m42 + m43 + m49 + m50 + m52 - m61 + m64 + m67 - m73 + m75 + m77 + m82 + m91)
+c53 = (m44 - m45 + m46 - m47 - m48 + m52 - m55 + m56 - m57 - m59 + m66 - m74 + m79 - m81 + m133 + m134 - m136 + m138 + m140 + m141 - m143 + m145 - m220 - m230 - m234 + m236 + m238 + m244 + m248 + m250 - m260 - m265 - m266 - m272 - m340 - m350 - m361 - m362 + m364)
+c54 = (m42 - m43 - m44 - m50 - m58 + m59 + m62 - m66 - m70 - m76 - m92 + m138 + m139 + m145 + m146 + m237 - m244 - m253 - m259 + m260 + m272 - m338 + m347 - m361 + m364 - m365 - m379)
+c55 = (m42 - m43 - m49 - m50 - m52 + m61 - m64 - m67 + m73 - m75 - m77 - m82 - m91 - m123 - m124 + m126 - m128 + m131 + m140 + m141 - m143 + m145 + m154 + m155 - m157 + m159 + m168 + m169 - m171 + m230 - m237 + m244 + m248 - m252 + m253 + m259 - m260 - m269 - m270 - m272 + m274 - m342 + m343 + m356 + m361 + m364 + m378)
+c56 = ( - m128 - m129 + m131 + m132 + m145 + m146 + m159 + m160 - m244 + m260 + m269 - m270 + m272 + m339 - m341 + m344 + m361 - m364 - m381)
+c57 = ( - m1 + m2 - m3 - m4 - m9 + m10 + m11 - m12 + m21 - m22 - m23 + m24 + m33 + m34 + m35 + m36 - m41 + m46 + m55 - m65 + m71 + m90)
+c58 = (m5 + m6 - m7 + m8 + m13 - m14 - m15 - m16 - m17 - m18 - m19 + m20 + m25 - m26 + m27 + m28 - m29 + m30 - m31 - m32 - m37 + m38 + m39 - m40 + m41 + m47 + m51 + m53 + m65 + m85)
+c59 = (m5 + m6 + m7 - m8 + m13 - m14 + m15 + m16 - m17 - m18 + m19 - m20 + m25 - m26 - m27 - m28 - m29 + m30 + m31 + m32 + m37 + m38 - m39 - m40 + m41 + m53 + m61 + m68 + m80 + m83 + m86 + m89)
+c60 = (m41 - m46 - m55 + m65 - m71 - m90 + m136 + m137 + m143 + m144 - m231 - m243 + m249 + m264 + m266 + m271 + m340 - m342 + m349 + m350 - m351 - m353 + m361 + m362 - m371)
+c61 = ( - m41 - m47 - m51 - m53 - m65 - m85 + m133 + m135 + m137 - m139 + m140 + m142 + m144 - m146 - m219 - m225 + m227 - m233 - m245 + m246 - m255 + m259 - m271 + m338 - m345 - m347 - m356 - m357 - m364 + m365 - m367 - m373 + m379)
+c62 = ( - m41 - m53 - m61 - m68 - m80 - m83 - m86 - m89 - m126 - m127 + m130 + m143 + m144 + m157 + m158 + m171 + m219 - m227 + m245 - m246 + m255 - m256 - m258 + m263 - m264 - m267 + m271 - m273 + m367 - m371 - m378)
+c63 = ( - m123 - m125 - m127 + m129 + m130 - m132 + m140 + m142 + m144 - m146 + m154 + m156 + m158 - m160 + m168 + m170 + m243 - m264 - m267 + m268 - m271 - m346 + m357 + m358 - m359 + m367 + m369 - m372 + m374 - m378)
+c64 = ( - m45 + m46 - m69 + m79)
+c65 = ( - m43 + m53 - m57 + m60 + m69 + m71 + m72 + m88)
+c66 = (m42 + m45 + m56 + m63 + m73 + m84 + m87)
+c67 = (m45 - m46 + m69 - m79 + m97 + m101 + m102 - m103 - m104 + m111 + m112 + m113 - m247 + m262 - m265 - m266 - m272 + m340 + m341 + m349 + m350 + m354 + m355 + m361 + m362 + m372)
+c68 = (m43 - m53 + m57 - m60 - m69 - m71 - m72 - m88 + m98 + m100 + m101 + m102 - m103 + m107 + m111 + m114 + m116 + m117 + m122 + m223 - m235 + m247 - m259 - m262 + m272 + m338 - m339 - m345 - m346 - m347 - m352 - m364 + m365 - m370 + m379)
+c69 = ( - m42 - m45 - m56 - m63 - m73 - m84 - m87 + m97 + m99 + m100 - m104 - m105 + m108 + m112 + m120 - m223 - m224 + m230 + m235 - m247 - m249 - m250 + m251 - m252 - m257 + m259 + m262 - m268 - m269 - m272 + m274 + m351 + m355 + m360 + m367 + m372 + m376 + m381 + m382 + m383)
+c70 = (m99 - m101 - m102 + m103 - m105 + m116 + m120 + m121 - m224 - m230 - m234 + m247 - m249 - m251 - m262 - m268 + m269 + m272 + m370 - m372 + m381)
+c71 = (m5 - m6 + m7 + m8 + m13 + m14 + m15 - m16 + m21 - m22 - m23 + m24 - m33 - m34 - m35 - m36 - m44 + m45 + m47 + m55 + m57 + m59 + m75 + m81)
+c72 = ( - m1 - m2 - m3 + m4 + m9 - m10 + m11 - m12 + m17 + m18 + m19 - m20 + m25 - m26 + m27 + m28 + m29 - m30 + m31 + m32 + m37 - m38 - m39 + m40 + m43 + m44 + m51 + m62)
+c73 = ( - m1 + m2 + m3 + m4 + m9 + m10 - m11 - m12 - m17 - m18 + m19 - m20 + m25 - m26 - m27 - m28 + m29 - m30 - m31 - m32 + m37 + m38 - m39 - m40 + m43 + m48 + m49 + m50 + m64 + m67 + m77)
+c74 = (m44 - m45 - m47 - m55 - m57 - m59 - m75 - m81 - m97 - m102 + m104 + m106 - m113 + m114 + m115 + m220 - m221 - m222 + m230 + m234 - m235 - m236 - m238 - m244 + m245 - m248 - m250 + m260 + m265 + m271 + m272)
+c75 = ( - m43 - m44 - m51 - m62 - m98 - m100 - m102 + m115 - m117 + m118 + m119 + m222 - m237 + m244 - m245 + m253 - m255 - m260 - m271 - m272)
+c76 = ( - m43 - m48 - m49 - m50 - m64 - m67 - m77 - m98 - m100 + m104 + m105 + m109 + m118 - m222 + m225 - m229 - m230 + m237 - m242 - m244 + m245 - m248 + m252 - m253 + m255 - m259 + m260 - m263 + m269 + m270 + m271 + m272 - m274)
+c77 = ( - m99 + m101 + m102 + m105 + m110 + m119 - m121 + m122 + m222 - m228 - m237 - m240 + m242 + m244 - m245 - m260 - m269 - m271 - m272)
+
+res_mul_num: [57, 47, 42, 12, 13, 12, 13, 51, 49, 47, 15, 14, 16, 13, 48, 40, 56, 13, 14, 14, 16, 34, 50, 49, 16, 20, 14, 22, 47, 50, 40, 17, 18, 17, 12, 33, 32, 24, 36, 34, 36, 18, 32, 28, 30, 27, 39, 27, 20, 38, 27, 37, 39, 27, 47, 19, 22, 30, 32, 25, 33, 31, 30, 28, 32, 23, 26, 35, 40, 21, 24, 28, 31, 31, 20, 36, 22]
+
+res_add_num: [892, 789, 617, 45, 47, 45, 54, 797, 792, 737, 52, 69, 70, 92, 799, 591, 981, 43, 69, 96, 65, 518, 792, 788, 61, 94, 61, 115, 729, 758, 561, 65, 75, 77, 45, 631, 633, 452, 378, 381, 456, 217, 619, 456, 572, 237, 404, 258, 185, 649, 471, 666, 403, 228, 510, 159, 389, 573, 592, 155, 290, 332, 323, 572, 600, 417, 190, 269, 364, 177, 420, 567, 610, 370, 183, 454, 283]
+
+Sorted indices: [16, 0, 7, 14, 22, 8, 23, 1, 29, 9, 28, 51, 49, 36, 35, 2, 42, 72, 64, 15, 58, 57, 44, 30, 63, 71, 54, 21, 50, 40, 75, 43, 37, 70, 46, 52, 65, 39, 38, 56, 68, 73, 61, 62, 60, 76, 67, 47, 45, 53, 41, 66, 48, 74, 69, 59, 55, 27, 25, 19, 13, 33, 32, 12, 11, 18, 31, 20, 24, 26, 6, 10, 4, 3, 5, 34, 17]
+level0:
+add0: b3 + b6
+add1: b53 + b64
+mul1: a21 * b73
+add2: b15 + b18
+add3: b42 + b75
+add4: b38 + b60
+add5: b25 + b27
+add6: b38 + b56
+add7: b45 + b49
+add8: b33 + b35
+add9: b25 + b28
+add10: b34 + b56
+add11: b67 + b69
+add12: b46 + b48
+add13: b26 + b32
+add14: b24 + b29
+add15: b1 + b24
+add16: b30 + b31
+add17: b29 + b31
+add18: b22 + b23
+mul16: a38 * b26
+add19: b22 + b24
+mul18: a45 * b27
+mul19: a36 * b4
+mul20: a43 * b5
+mul21: a37 * b15
+mul22: a44 * b16
+
+level1:
+mul0: add0 * add1
+mul2: b40 * add2
+mul3: b14 * add3
+mul4: b27 * add4
+mul5: add5 * add6
+mul6: b26 * add7
+mul7: b45 * add8
+mul8: add9 * add10
+mul9: b49 * add11
+mul10: b56 * add12
+mul11: b48 * add13
+mul12: add14 * add15
+mul13: b25 * add16
+mul14: b24 * add17
+mul15: b3 * add18
+mul17: b1 * add19
+
+bias：
+key: (0, 2), bias: 15
+key: (0, 14), bias: 18
+key: (2, 14), bias: 11
+key: (0, 16), bias: 7
+key: (2, 16), bias: 9
+key: (14, 16), bias: 12
+Unexpected coefficient: v(7,0):-0.125
+Unexpected coefficient: v(8,0):-0.125
+Unexpected coefficient: v(17,0):0.125
+Unexpected coefficient: v(21,0):-0.125
+Unexpected coefficient: v(28,0):-0.125
+Unexpected coefficient: v(30,0):0.125
+Unexpected coefficient: v(40,0):0.125
+Unexpected coefficient: v(41,0):0.125
+Unexpected coefficient: v(50,0):-0.125
+Unexpected coefficient: v(54,0):0.125
+Unexpected coefficient: v(61,0):0.125
+Unexpected coefficient: v(63,0):-0.125
+Unexpected coefficient: v(7,1):-0.125
+Unexpected coefficient: v(8,1):0.125
+Unexpected coefficient: v(17,1):-0.125
+Unexpected coefficient: v(21,1):-0.125
+Unexpected coefficient: v(28,1):0.125
+Unexpected coefficient: v(30,1):0.125
+Unexpected coefficient: v(40,1):0.125
+Unexpected coefficient: v(41,1):-0.125
+Unexpected coefficient: v(50,1):0.125
+Unexpected coefficient: v(54,1):0.125
+Unexpected coefficient: v(61,1):-0.125
+Unexpected coefficient: v(63,1):-0.125
+Unexpected coefficient: v(7,2):-0.125
+Unexpected coefficient: v(8,2):-0.125
+Unexpected coefficient: v(17,2):0.125
+Unexpected coefficient: v(21,2):-0.125
+Unexpected coefficient: v(28,2):0.125
+Unexpected coefficient: v(30,2):-0.125
+Unexpected coefficient: v(40,2):0.125
+Unexpected coefficient: v(41,2):0.125
+Unexpected coefficient: v(50,2):-0.125
+Unexpected coefficient: v(54,2):0.125
+Unexpected coefficient: v(61,2):-0.125
+Unexpected coefficient: v(63,2):0.125
+Unexpected coefficient: v(7,3):0.125
+Unexpected coefficient: v(8,3):-0.125
+Unexpected coefficient: v(17,3):0.125
+Unexpected coefficient: v(21,3):0.125
+Unexpected coefficient: v(28,3):0.125
+Unexpected coefficient: v(30,3):0.125
+Unexpected coefficient: v(40,3):-0.125
+Unexpected coefficient: v(41,3):0.125
+Unexpected coefficient: v(50,3):-0.125
+Unexpected coefficient: v(54,3):-0.125
+Unexpected coefficient: v(61,3):-0.125
+Unexpected coefficient: v(63,3):-0.125
+Unexpected coefficient: v(7,4):0.125
+Unexpected coefficient: v(10,4):-0.125
+Unexpected coefficient: v(17,4):0.125
+Unexpected coefficient: v(19,4):0.125
+Unexpected coefficient: v(28,4):-0.125
+Unexpected coefficient: v(32,4):-0.125
+Unexpected coefficient: v(40,4):-0.125
+Unexpected coefficient: v(43,4):0.125
+Unexpected coefficient: v(50,4):-0.125
+Unexpected coefficient: v(52,4):-0.125
+Unexpected coefficient: v(61,4):0.125
+Unexpected coefficient: v(65,4):0.125
+Unexpected coefficient: v(7,5):0.125
+Unexpected coefficient: v(10,5):0.125
+Unexpected coefficient: v(17,5):-0.125
+Unexpected coefficient: v(19,5):0.125
+Unexpected coefficient: v(28,5):-0.125
+Unexpected coefficient: v(32,5):0.125
+Unexpected coefficient: v(40,5):-0.125
+Unexpected coefficient: v(43,5):-0.125
+Unexpected coefficient: v(50,5):0.125
+Unexpected coefficient: v(52,5):-0.125
+Unexpected coefficient: v(61,5):0.125
+Unexpected coefficient: v(65,5):-0.125
+Unexpected coefficient: v(7,6):-0.125
+Unexpected coefficient: v(10,6):-0.125
+Unexpected coefficient: v(17,6):0.125
+Unexpected coefficient: v(19,6):-0.125
+Unexpected coefficient: v(28,6):-0.125
+Unexpected coefficient: v(32,6):0.125
+Unexpected coefficient: v(40,6):0.125
+Unexpected coefficient: v(43,6):0.125
+Unexpected coefficient: v(50,6):-0.125
+Unexpected coefficient: v(52,6):0.125
+Unexpected coefficient: v(61,6):0.125
+Unexpected coefficient: v(65,6):-0.125
+Unexpected coefficient: v(7,7):0.125
+Unexpected coefficient: v(10,7):-0.125
+Unexpected coefficient: v(17,7):0.125
+Unexpected coefficient: v(19,7):0.125
+Unexpected coefficient: v(28,7):0.125
+Unexpected coefficient: v(32,7):0.125
+Unexpected coefficient: v(40,7):-0.125
+Unexpected coefficient: v(43,7):0.125
+Unexpected coefficient: v(50,7):-0.125
+Unexpected coefficient: v(52,7):-0.125
+Unexpected coefficient: v(61,7):-0.125
+Unexpected coefficient: v(65,7):-0.125
+Unexpected coefficient: v(6,8):-0.125
+Unexpected coefficient: v(8,8):0.125
+Unexpected coefficient: v(18,8):0.125
+Unexpected coefficient: v(21,8):0.125
+Unexpected coefficient: v(29,8):-0.125
+Unexpected coefficient: v(30,8):-0.125
+Unexpected coefficient: v(39,8):0.125
+Unexpected coefficient: v(41,8):-0.125
+Unexpected coefficient: v(51,8):-0.125
+Unexpected coefficient: v(54,8):-0.125
+Unexpected coefficient: v(62,8):0.125
+Unexpected coefficient: v(63,8):0.125
+Unexpected coefficient: v(6,9):0.125
+Unexpected coefficient: v(8,9):-0.125
+Unexpected coefficient: v(18,9):-0.125
+Unexpected coefficient: v(21,9):-0.125
+Unexpected coefficient: v(29,9):-0.125
+Unexpected coefficient: v(30,9):-0.125
+Unexpected coefficient: v(39,9):-0.125
+Unexpected coefficient: v(41,9):0.125
+Unexpected coefficient: v(51,9):0.125
+Unexpected coefficient: v(54,9):0.125
+Unexpected coefficient: v(62,9):0.125
+Unexpected coefficient: v(63,9):0.125
+Unexpected coefficient: v(6,10):0.125
+Unexpected coefficient: v(8,10):0.125
+Unexpected coefficient: v(18,10):0.125
+Unexpected coefficient: v(21,10):-0.125
+Unexpected coefficient: v(29,10):-0.125
+Unexpected coefficient: v(30,10):0.125
+Unexpected coefficient: v(39,10):-0.125
+Unexpected coefficient: v(41,10):-0.125
+Unexpected coefficient: v(51,10):-0.125
+Unexpected coefficient: v(54,10):0.125
+Unexpected coefficient: v(62,10):0.125
+Unexpected coefficient: v(63,10):-0.125
+Unexpected coefficient: v(6,11):0.125
+Unexpected coefficient: v(8,11):0.125
+Unexpected coefficient: v(18,11):0.125
+Unexpected coefficient: v(21,11):-0.125
+Unexpected coefficient: v(29,11):0.125
+Unexpected coefficient: v(30,11):-0.125
+Unexpected coefficient: v(39,11):-0.125
+Unexpected coefficient: v(41,11):-0.125
+Unexpected coefficient: v(51,11):-0.125
+Unexpected coefficient: v(54,11):0.125
+Unexpected coefficient: v(62,11):-0.125
+Unexpected coefficient: v(63,11):0.125
+Unexpected coefficient: v(6,12):-0.125
+Unexpected coefficient: v(10,12):0.125
+Unexpected coefficient: v(18,12):0.125
+Unexpected coefficient: v(19,12):0.125
+Unexpected coefficient: v(29,12):0.125
+Unexpected coefficient: v(32,12):0.125
+Unexpected coefficient: v(39,12):0.125
+Unexpected coefficient: v(43,12):-0.125
+Unexpected coefficient: v(51,12):-0.125
+Unexpected coefficient: v(52,12):-0.125
+Unexpected coefficient: v(62,12):-0.125
+Unexpected coefficient: v(65,12):-0.125
+Unexpected coefficient: v(6,13):0.125
+Unexpected coefficient: v(10,13):0.125
+Unexpected coefficient: v(18,13):0.125
+Unexpected coefficient: v(19,13):-0.125
+Unexpected coefficient: v(29,13):-0.125
+Unexpected coefficient: v(32,13):0.125
+Unexpected coefficient: v(39,13):-0.125
+Unexpected coefficient: v(43,13):-0.125
+Unexpected coefficient: v(51,13):-0.125
+Unexpected coefficient: v(52,13):0.125
+Unexpected coefficient: v(62,13):0.125
+Unexpected coefficient: v(65,13):-0.125
+Unexpected coefficient: v(6,14):-0.125
+Unexpected coefficient: v(10,14):-0.125
+Unexpected coefficient: v(18,14):-0.125
+Unexpected coefficient: v(19,14):0.125
+Unexpected coefficient: v(29,14):-0.125
+Unexpected coefficient: v(32,14):0.125
+Unexpected coefficient: v(39,14):0.125
+Unexpected coefficient: v(43,14):0.125
+Unexpected coefficient: v(51,14):0.125
+Unexpected coefficient: v(52,14):-0.125
+Unexpected coefficient: v(62,14):0.125
+Unexpected coefficient: v(65,14):-0.125
+Unexpected coefficient: v(6,15):-0.125
+Unexpected coefficient: v(10,15):0.125
+Unexpected coefficient: v(18,15):0.125
+Unexpected coefficient: v(19,15):0.125
+Unexpected coefficient: v(29,15):-0.125
+Unexpected coefficient: v(32,15):-0.125
+Unexpected coefficient: v(39,15):0.125
+Unexpected coefficient: v(43,15):-0.125
+Unexpected coefficient: v(51,15):-0.125
+Unexpected coefficient: v(52,15):-0.125
+Unexpected coefficient: v(62,15):0.125
+Unexpected coefficient: v(65,15):0.125
+Unexpected coefficient: v(8,16):0.125
+Unexpected coefficient: v(10,16):0.125
+Unexpected coefficient: v(17,16):-0.125
+Unexpected coefficient: v(18,16):0.125
+Unexpected coefficient: v(28,16):0.125
+Unexpected coefficient: v(29,16):0.125
+Unexpected coefficient: v(30,16):0.125
+Unexpected coefficient: v(32,16):0.125
+Unexpected coefficient: v(41,16):-0.125
+Unexpected coefficient: v(43,16):-0.125
+Unexpected coefficient: v(50,16):0.125
+Unexpected coefficient: v(51,16):-0.125
+Unexpected coefficient: v(61,16):-0.125
+Unexpected coefficient: v(62,16):-0.125
+Unexpected coefficient: v(63,16):-0.125
+Unexpected coefficient: v(65,16):-0.125
+Unexpected coefficient: v(8,17):0.125
+Unexpected coefficient: v(10,17):0.125
+Unexpected coefficient: v(17,17):-0.125
+Unexpected coefficient: v(18,17):0.125
+Unexpected coefficient: v(28,17):-0.125
+Unexpected coefficient: v(29,17):-0.125
+Unexpected coefficient: v(30,17):0.125
+Unexpected coefficient: v(32,17):0.125
+Unexpected coefficient: v(41,17):-0.125
+Unexpected coefficient: v(43,17):-0.125
+Unexpected coefficient: v(50,17):0.125
+Unexpected coefficient: v(51,17):-0.125
+Unexpected coefficient: v(61,17):0.125
+Unexpected coefficient: v(62,17):0.125
+Unexpected coefficient: v(63,17):-0.125
+Unexpected coefficient: v(65,17):-0.125
+Unexpected coefficient: v(8,18):0.125
+Unexpected coefficient: v(10,18):0.125
+Unexpected coefficient: v(17,18):-0.125
+Unexpected coefficient: v(18,18):0.125
+Unexpected coefficient: v(28,18):-0.125
+Unexpected coefficient: v(29,18):-0.125
+Unexpected coefficient: v(30,18):-0.125
+Unexpected coefficient: v(32,18):-0.125
+Unexpected coefficient: v(41,18):-0.125
+Unexpected coefficient: v(43,18):-0.125
+Unexpected coefficient: v(50,18):0.125
+Unexpected coefficient: v(51,18):-0.125
+Unexpected coefficient: v(61,18):0.125
+Unexpected coefficient: v(62,18):0.125
+Unexpected coefficient: v(63,18):0.125
+Unexpected coefficient: v(65,18):0.125
+Unexpected coefficient: v(8,19):0.125
+Unexpected coefficient: v(10,19):0.125
+Unexpected coefficient: v(17,19):-0.125
+Unexpected coefficient: v(18,19):0.125
+Unexpected coefficient: v(28,19):0.125
+Unexpected coefficient: v(29,19):0.125
+Unexpected coefficient: v(30,19):-0.125
+Unexpected coefficient: v(32,19):-0.125
+Unexpected coefficient: v(41,19):-0.125
+Unexpected coefficient: v(43,19):-0.125
+Unexpected coefficient: v(50,19):0.125
+Unexpected coefficient: v(51,19):-0.125
+Unexpected coefficient: v(61,19):-0.125
+Unexpected coefficient: v(62,19):-0.125
+Unexpected coefficient: v(63,19):0.125
+Unexpected coefficient: v(65,19):0.125
+Unexpected coefficient: v(17,20):0.125
+Unexpected coefficient: v(18,20):-0.125
+Unexpected coefficient: v(19,20):0.125
+Unexpected coefficient: v(21,20):0.125
+Unexpected coefficient: v(28,20):-0.125
+Unexpected coefficient: v(29,20):-0.125
+Unexpected coefficient: v(50,20):-0.125
+Unexpected coefficient: v(51,20):0.125
+Unexpected coefficient: v(52,20):-0.125
+Unexpected coefficient: v(54,20):-0.125
+Unexpected coefficient: v(61,20):0.125
+Unexpected coefficient: v(62,20):0.125
+Unexpected coefficient: v(17,21):-0.125
+Unexpected coefficient: v(18,21):0.125
+Unexpected coefficient: v(19,21):0.125
+Unexpected coefficient: v(21,21):0.125
+Unexpected coefficient: v(28,21):-0.125
+Unexpected coefficient: v(29,21):-0.125
+Unexpected coefficient: v(50,21):0.125
+Unexpected coefficient: v(51,21):-0.125
+Unexpected coefficient: v(52,21):-0.125
+Unexpected coefficient: v(54,21):-0.125
+Unexpected coefficient: v(61,21):0.125
+Unexpected coefficient: v(62,21):0.125
+Unexpected coefficient: v(17,22):-0.125
+Unexpected coefficient: v(18,22):0.125
+Unexpected coefficient: v(19,22):-0.125
+Unexpected coefficient: v(21,22):-0.125
+Unexpected coefficient: v(28,22):-0.125
+Unexpected coefficient: v(29,22):-0.125
+Unexpected coefficient: v(50,22):0.125
+Unexpected coefficient: v(51,22):-0.125
+Unexpected coefficient: v(52,22):0.125
+Unexpected coefficient: v(54,22):0.125
+Unexpected coefficient: v(61,22):0.125
+Unexpected coefficient: v(62,22):0.125
+Unexpected coefficient: v(17,23):-0.125
+Unexpected coefficient: v(18,23):0.125
+Unexpected coefficient: v(19,23):0.125
+Unexpected coefficient: v(21,23):0.125
+Unexpected coefficient: v(28,23):0.125
+Unexpected coefficient: v(29,23):0.125
+Unexpected coefficient: v(50,23):0.125
+Unexpected coefficient: v(51,23):-0.125
+Unexpected coefficient: v(52,23):-0.125
+Unexpected coefficient: v(54,23):-0.125
+Unexpected coefficient: v(61,23):-0.125
+Unexpected coefficient: v(62,23):-0.125
+Unexpected coefficient: v(6,24):-0.125
+Unexpected coefficient: v(7,24):0.125
+Unexpected coefficient: v(8,24):-0.125
+Unexpected coefficient: v(10,24):-0.125
+Unexpected coefficient: v(30,24):0.125
+Unexpected coefficient: v(32,24):-0.125
+Unexpected coefficient: v(39,24):0.125
+Unexpected coefficient: v(40,24):-0.125
+Unexpected coefficient: v(41,24):0.125
+Unexpected coefficient: v(43,24):0.125
+Unexpected coefficient: v(63,24):-0.125
+Unexpected coefficient: v(65,24):0.125
+Unexpected coefficient: v(6,25):-0.125
+Unexpected coefficient: v(7,25):0.125
+Unexpected coefficient: v(8,25):0.125
+Unexpected coefficient: v(10,25):0.125
+Unexpected coefficient: v(30,25):-0.125
+Unexpected coefficient: v(32,25):0.125
+Unexpected coefficient: v(39,25):0.125
+Unexpected coefficient: v(40,25):-0.125
+Unexpected coefficient: v(41,25):-0.125
+Unexpected coefficient: v(43,25):-0.125
+Unexpected coefficient: v(63,25):0.125
+Unexpected coefficient: v(65,25):-0.125
+Unexpected coefficient: v(6,26):0.125
+Unexpected coefficient: v(7,26):-0.125
+Unexpected coefficient: v(8,26):-0.125
+Unexpected coefficient: v(10,26):-0.125
+Unexpected coefficient: v(30,26):-0.125
+Unexpected coefficient: v(32,26):0.125
+Unexpected coefficient: v(39,26):-0.125
+Unexpected coefficient: v(40,26):0.125
+Unexpected coefficient: v(41,26):0.125
+Unexpected coefficient: v(43,26):0.125
+Unexpected coefficient: v(63,26):0.125
+Unexpected coefficient: v(65,26):-0.125
+Unexpected coefficient: v(6,27):-0.125
+Unexpected coefficient: v(7,27):0.125
+Unexpected coefficient: v(8,27):-0.125
+Unexpected coefficient: v(10,27):-0.125
+Unexpected coefficient: v(30,27):-0.125
+Unexpected coefficient: v(32,27):0.125
+Unexpected coefficient: v(39,27):0.125
+Unexpected coefficient: v(40,27):-0.125
+Unexpected coefficient: v(41,27):0.125
+Unexpected coefficient: v(43,27):0.125
+Unexpected coefficient: v(63,27):0.125
+Unexpected coefficient: v(65,27):-0.125
+Unexpected coefficient: v(8,28):0.125
+Unexpected coefficient: v(10,28):0.125
+Unexpected coefficient: v(17,28):-0.125
+Unexpected coefficient: v(18,28):0.125
+Unexpected coefficient: v(28,28):0.125
+Unexpected coefficient: v(29,28):-0.125
+Unexpected coefficient: v(30,28):-0.125
+Unexpected coefficient: v(32,28):0.125
+Unexpected coefficient: v(41,28):-0.125
+Unexpected coefficient: v(43,28):-0.125
+Unexpected coefficient: v(50,28):0.125
+Unexpected coefficient: v(51,28):-0.125
+Unexpected coefficient: v(61,28):-0.125
+Unexpected coefficient: v(62,28):0.125
+Unexpected coefficient: v(63,28):0.125
+Unexpected coefficient: v(65,28):-0.125
+Unexpected coefficient: v(8,29):0.125
+Unexpected coefficient: v(10,29):0.125
+Unexpected coefficient: v(17,29):-0.125
+Unexpected coefficient: v(18,29):0.125
+Unexpected coefficient: v(28,29):-0.125
+Unexpected coefficient: v(29,29):0.125
+Unexpected coefficient: v(30,29):-0.125
+Unexpected coefficient: v(32,29):0.125
+Unexpected coefficient: v(41,29):-0.125
+Unexpected coefficient: v(43,29):-0.125
+Unexpected coefficient: v(50,29):0.125
+Unexpected coefficient: v(51,29):-0.125
+Unexpected coefficient: v(61,29):0.125
+Unexpected coefficient: v(62,29):-0.125
+Unexpected coefficient: v(63,29):0.125
+Unexpected coefficient: v(65,29):-0.125
+Unexpected coefficient: v(8,30):0.125
+Unexpected coefficient: v(10,30):0.125
+Unexpected coefficient: v(17,30):-0.125
+Unexpected coefficient: v(18,30):0.125
+Unexpected coefficient: v(28,30):-0.125
+Unexpected coefficient: v(29,30):0.125
+Unexpected coefficient: v(30,30):0.125
+Unexpected coefficient: v(32,30):-0.125
+Unexpected coefficient: v(41,30):-0.125
+Unexpected coefficient: v(43,30):-0.125
+Unexpected coefficient: v(50,30):0.125
+Unexpected coefficient: v(51,30):-0.125
+Unexpected coefficient: v(61,30):0.125
+Unexpected coefficient: v(62,30):-0.125
+Unexpected coefficient: v(63,30):-0.125
+Unexpected coefficient: v(65,30):0.125
+Unexpected coefficient: v(8,31):0.125
+Unexpected coefficient: v(10,31):0.125
+Unexpected coefficient: v(17,31):-0.125
+Unexpected coefficient: v(18,31):0.125
+Unexpected coefficient: v(28,31):0.125
+Unexpected coefficient: v(29,31):-0.125
+Unexpected coefficient: v(30,31):0.125
+Unexpected coefficient: v(32,31):-0.125
+Unexpected coefficient: v(41,31):-0.125
+Unexpected coefficient: v(43,31):-0.125
+Unexpected coefficient: v(50,31):0.125
+Unexpected coefficient: v(51,31):-0.125
+Unexpected coefficient: v(61,31):-0.125
+Unexpected coefficient: v(62,31):0.125
+Unexpected coefficient: v(63,31):-0.125
+Unexpected coefficient: v(65,31):0.125
+Unexpected coefficient: v(17,32):0.125
+Unexpected coefficient: v(18,32):0.125
+Unexpected coefficient: v(19,32):0.125
+Unexpected coefficient: v(21,32):-0.125
+Unexpected coefficient: v(28,32):0.125
+Unexpected coefficient: v(29,32):0.125
+Unexpected coefficient: v(50,32):-0.125
+Unexpected coefficient: v(51,32):-0.125
+Unexpected coefficient: v(52,32):-0.125
+Unexpected coefficient: v(54,32):0.125
+Unexpected coefficient: v(61,32):-0.125
+Unexpected coefficient: v(62,32):-0.125
+Unexpected coefficient: v(17,33):0.125
+Unexpected coefficient: v(18,33):0.125
+Unexpected coefficient: v(19,33):-0.125
+Unexpected coefficient: v(21,33):0.125
+Unexpected coefficient: v(28,33):-0.125
+Unexpected coefficient: v(29,33):-0.125
+Unexpected coefficient: v(50,33):-0.125
+Unexpected coefficient: v(51,33):-0.125
+Unexpected coefficient: v(52,33):0.125
+Unexpected coefficient: v(54,33):-0.125
+Unexpected coefficient: v(61,33):0.125
+Unexpected coefficient: v(62,33):0.125
+Unexpected coefficient: v(17,34):0.125
+Unexpected coefficient: v(18,34):0.125
+Unexpected coefficient: v(19,34):0.125
+Unexpected coefficient: v(21,34):-0.125
+Unexpected coefficient: v(28,34):-0.125
+Unexpected coefficient: v(29,34):-0.125
+Unexpected coefficient: v(50,34):-0.125
+Unexpected coefficient: v(51,34):-0.125
+Unexpected coefficient: v(52,34):-0.125
+Unexpected coefficient: v(54,34):0.125
+Unexpected coefficient: v(61,34):0.125
+Unexpected coefficient: v(62,34):0.125
+Unexpected coefficient: v(17,35):0.125
+Unexpected coefficient: v(18,35):0.125
+Unexpected coefficient: v(19,35):-0.125
+Unexpected coefficient: v(21,35):0.125
+Unexpected coefficient: v(28,35):0.125
+Unexpected coefficient: v(29,35):0.125
+Unexpected coefficient: v(50,35):-0.125
+Unexpected coefficient: v(51,35):-0.125
+Unexpected coefficient: v(52,35):0.125
+Unexpected coefficient: v(54,35):-0.125
+Unexpected coefficient: v(61,35):-0.125
+Unexpected coefficient: v(62,35):-0.125
+Unexpected coefficient: v(6,36):0.125
+Unexpected coefficient: v(7,36):0.125
+Unexpected coefficient: v(8,36):-0.125
+Unexpected coefficient: v(10,36):0.125
+Unexpected coefficient: v(30,36):0.125
+Unexpected coefficient: v(32,36):-0.125
+Unexpected coefficient: v(39,36):-0.125
+Unexpected coefficient: v(40,36):-0.125
+Unexpected coefficient: v(41,36):0.125
+Unexpected coefficient: v(43,36):-0.125
+Unexpected coefficient: v(63,36):-0.125
+Unexpected coefficient: v(65,36):0.125
+Unexpected coefficient: v(6,37):-0.125
+Unexpected coefficient: v(7,37):-0.125
+Unexpected coefficient: v(8,37):-0.125
+Unexpected coefficient: v(10,37):0.125
+Unexpected coefficient: v(30,37):-0.125
+Unexpected coefficient: v(32,37):0.125
+Unexpected coefficient: v(39,37):0.125
+Unexpected coefficient: v(40,37):0.125
+Unexpected coefficient: v(41,37):0.125
+Unexpected coefficient: v(43,37):-0.125
+Unexpected coefficient: v(63,37):0.125
+Unexpected coefficient: v(65,37):-0.125
+Unexpected coefficient: v(6,38):0.125
+Unexpected coefficient: v(7,38):0.125
+Unexpected coefficient: v(8,38):0.125
+Unexpected coefficient: v(10,38):-0.125
+Unexpected coefficient: v(30,38):-0.125
+Unexpected coefficient: v(32,38):0.125
+Unexpected coefficient: v(39,38):-0.125
+Unexpected coefficient: v(40,38):-0.125
+Unexpected coefficient: v(41,38):-0.125
+Unexpected coefficient: v(43,38):0.125
+Unexpected coefficient: v(63,38):0.125
+Unexpected coefficient: v(65,38):-0.125
+Unexpected coefficient: v(6,39):0.125
+Unexpected coefficient: v(7,39):0.125
+Unexpected coefficient: v(8,39):-0.125
+Unexpected coefficient: v(10,39):0.125
+Unexpected coefficient: v(30,39):-0.125
+Unexpected coefficient: v(32,39):0.125
+Unexpected coefficient: v(39,39):-0.125
+Unexpected coefficient: v(40,39):-0.125
+Unexpected coefficient: v(41,39):0.125
+Unexpected coefficient: v(43,39):-0.125
+Unexpected coefficient: v(63,39):0.125
+Unexpected coefficient: v(65,39):-0.125
+Unexpected coefficient: v(60,57):-0.5
+Unexpected coefficient: v(65,57):0.5
+Unexpected coefficient: v(71,57):0.5
+Unexpected coefficient: v(76,57):-0.5
+Unexpected coefficient: v(60,75):0.5
+Unexpected coefficient: v(65,75):0.5
+Unexpected coefficient: v(71,75):0.5
+Unexpected coefficient: v(76,75):0.5
+Unexpected coefficient: v(60,94):0.5
+Unexpected coefficient: v(65,94):0.5
+Unexpected coefficient: v(71,94):-0.5
+Unexpected coefficient: v(76,94):-0.5
+Unexpected coefficient: u(3,208):-2.0
+Unexpected coefficient: u(17,208):2.0
+Unexpected coefficient: u(24,208):-2.0
+Unexpected coefficient: u(38,208):2.0
+Unexpected coefficient: u(4,212):2.0
+Unexpected coefficient: u(25,212):2.0
+Unexpected coefficient: u(31,322):-2.0
+Unexpected coefficient: v(22,359):-2.0
+Unexpected coefficient: v(26,359):-2.0
+Unexpected coefficient: u(21,374):-2.0
+Unexpected coefficient: u(23,374):2.0
+Unexpected coefficient: u(28,378):2.0
+Unexpected coefficient: w(0,0):0.125
+Unexpected coefficient: w(0,1):-0.125
+Unexpected coefficient: w(0,2):-0.125
+Unexpected coefficient: w(0,3):-0.125
+Unexpected coefficient: w(0,12):-0.125
+Unexpected coefficient: w(0,13):0.125
+Unexpected coefficient: w(0,14):-0.125
+Unexpected coefficient: w(0,15):-0.125
+Unexpected coefficient: w(0,20):-0.125
+Unexpected coefficient: w(0,21):-0.125
+Unexpected coefficient: w(0,22):-0.125
+Unexpected coefficient: w(0,23):-0.125
+Unexpected coefficient: w(0,24):-0.125
+Unexpected coefficient: w(0,25):0.125
+Unexpected coefficient: w(0,26):0.125
+Unexpected coefficient: w(0,27):0.125
+Unexpected coefficient: w(0,32):0.125
+Unexpected coefficient: w(0,33):-0.125
+Unexpected coefficient: w(0,34):-0.125
+Unexpected coefficient: w(0,35):0.125
+Unexpected coefficient: w(0,36):-0.125
+Unexpected coefficient: w(0,37):-0.125
+Unexpected coefficient: w(0,38):0.125
+Unexpected coefficient: w(0,39):0.125
+Unexpected coefficient: w(1,0):0.125
+Unexpected coefficient: w(1,1):0.125
+Unexpected coefficient: w(1,2):-0.125
+Unexpected coefficient: w(1,3):0.125
+Unexpected coefficient: w(1,12):-0.125
+Unexpected coefficient: w(1,13):-0.125
+Unexpected coefficient: w(1,14):0.125
+Unexpected coefficient: w(1,15):-0.125
+Unexpected coefficient: w(1,20):0.125
+Unexpected coefficient: w(1,21):-0.125
+Unexpected coefficient: w(1,22):0.125
+Unexpected coefficient: w(1,23):-0.125
+Unexpected coefficient: w(1,24):0.125
+Unexpected coefficient: w(1,25):0.125
+Unexpected coefficient: w(1,26):0.125
+Unexpected coefficient: w(1,27):-0.125
+Unexpected coefficient: w(1,32):0.125
+Unexpected coefficient: w(1,33):0.125
+Unexpected coefficient: w(1,34):-0.125
+Unexpected coefficient: w(1,35):-0.125
+Unexpected coefficient: w(1,36):0.125
+Unexpected coefficient: w(1,37):-0.125
+Unexpected coefficient: w(1,38):0.125
+Unexpected coefficient: w(1,39):-0.125
+Unexpected coefficient: w(2,4):-0.125
+Unexpected coefficient: w(2,5):0.125
+Unexpected coefficient: w(2,6):-0.125
+Unexpected coefficient: w(2,7):-0.125
+Unexpected coefficient: w(2,8):0.125
+Unexpected coefficient: w(2,9):-0.125
+Unexpected coefficient: w(2,10):-0.125
+Unexpected coefficient: w(2,11):0.125
+Unexpected coefficient: w(2,16):0.125
+Unexpected coefficient: w(2,17):-0.125
+Unexpected coefficient: w(2,18):0.125
+Unexpected coefficient: w(2,19):0.125
+Unexpected coefficient: w(2,28):0.125
+Unexpected coefficient: w(2,29):0.125
+Unexpected coefficient: w(2,30):0.125
+Unexpected coefficient: w(2,31):-0.125
+Unexpected coefficient: w(2,193):2.0
+Unexpected coefficient: w(28,4):-0.125
+Unexpected coefficient: w(28,5):-0.125
+Unexpected coefficient: w(28,6):-0.125
+Unexpected coefficient: w(28,7):0.125
+Unexpected coefficient: w(28,8):-0.125
+Unexpected coefficient: w(28,9):-0.125
+Unexpected coefficient: w(28,10):0.125
+Unexpected coefficient: w(28,11):0.125
+Unexpected coefficient: w(28,20):-0.125
+Unexpected coefficient: w(28,21):-0.125
+Unexpected coefficient: w(28,22):-0.125
+Unexpected coefficient: w(28,23):-0.125
+Unexpected coefficient: w(28,24):-0.125
+Unexpected coefficient: w(28,25):0.125
+Unexpected coefficient: w(28,26):0.125
+Unexpected coefficient: w(28,27):0.125
+Unexpected coefficient: w(28,32):-0.125
+Unexpected coefficient: w(28,33):0.125
+Unexpected coefficient: w(28,34):0.125
+Unexpected coefficient: w(28,35):-0.125
+Unexpected coefficient: w(28,36):-0.125
+Unexpected coefficient: w(28,37):-0.125
+Unexpected coefficient: w(28,38):0.125
+Unexpected coefficient: w(28,39):0.125
+Unexpected coefficient: w(29,4):-0.125
+Unexpected coefficient: w(29,5):0.125
+Unexpected coefficient: w(29,6):0.125
+Unexpected coefficient: w(29,7):0.125
+Unexpected coefficient: w(29,8):0.125
+Unexpected coefficient: w(29,9):0.125
+Unexpected coefficient: w(29,10):0.125
+Unexpected coefficient: w(29,11):0.125
+Unexpected coefficient: w(29,20):-0.125
+Unexpected coefficient: w(29,21):0.125
+Unexpected coefficient: w(29,22):-0.125
+Unexpected coefficient: w(29,23):0.125
+Unexpected coefficient: w(29,24):-0.125
+Unexpected coefficient: w(29,25):-0.125
+Unexpected coefficient: w(29,26):-0.125
+Unexpected coefficient: w(29,27):0.125
+Unexpected coefficient: w(29,32):-0.125
+Unexpected coefficient: w(29,33):-0.125
+Unexpected coefficient: w(29,34):0.125
+Unexpected coefficient: w(29,35):0.125
+Unexpected coefficient: w(29,36):0.125
+Unexpected coefficient: w(29,37):-0.125
+Unexpected coefficient: w(29,38):0.125
+Unexpected coefficient: w(29,39):-0.125
+Unexpected coefficient: w(30,0):0.125
+Unexpected coefficient: w(30,1):-0.125
+Unexpected coefficient: w(30,2):0.125
+Unexpected coefficient: w(30,3):0.125
+Unexpected coefficient: w(30,12):-0.125
+Unexpected coefficient: w(30,13):-0.125
+Unexpected coefficient: w(30,14):-0.125
+Unexpected coefficient: w(30,15):0.125
+Unexpected coefficient: w(30,16):0.125
+Unexpected coefficient: w(30,17):-0.125
+Unexpected coefficient: w(30,18):0.125
+Unexpected coefficient: w(30,19):0.125
+Unexpected coefficient: w(30,28):-0.125
+Unexpected coefficient: w(30,29):-0.125
+Unexpected coefficient: w(30,30):-0.125
+Unexpected coefficient: w(30,31):0.125
+Unexpected coefficient: w(30,193):2.0
+Unexpected coefficient: w(35,0):0.125
+Unexpected coefficient: w(35,1):-0.125
+Unexpected coefficient: w(35,2):-0.125
+Unexpected coefficient: w(35,3):-0.125
+Unexpected coefficient: w(35,12):-0.125
+Unexpected coefficient: w(35,13):0.125
+Unexpected coefficient: w(35,14):-0.125
+Unexpected coefficient: w(35,15):-0.125
+Unexpected coefficient: w(35,20):-0.125
+Unexpected coefficient: w(35,21):-0.125
+Unexpected coefficient: w(35,22):-0.125
+Unexpected coefficient: w(35,23):-0.125
+Unexpected coefficient: w(35,24):-0.125
+Unexpected coefficient: w(35,25):0.125
+Unexpected coefficient: w(35,26):0.125
+Unexpected coefficient: w(35,27):0.125
+Unexpected coefficient: w(35,32):0.125
+Unexpected coefficient: w(35,33):-0.125
+Unexpected coefficient: w(35,34):-0.125
+Unexpected coefficient: w(35,35):0.125
+Unexpected coefficient: w(35,36):-0.125
+Unexpected coefficient: w(35,37):-0.125
+Unexpected coefficient: w(35,38):0.125
+Unexpected coefficient: w(35,39):0.125
+Unexpected coefficient: w(36,0):0.125
+Unexpected coefficient: w(36,1):0.125
+Unexpected coefficient: w(36,2):-0.125
+Unexpected coefficient: w(36,3):0.125
+Unexpected coefficient: w(36,12):-0.125
+Unexpected coefficient: w(36,13):-0.125
+Unexpected coefficient: w(36,14):0.125
+Unexpected coefficient: w(36,15):-0.125
+Unexpected coefficient: w(36,20):0.125
+Unexpected coefficient: w(36,21):-0.125
+Unexpected coefficient: w(36,22):0.125
+Unexpected coefficient: w(36,23):-0.125
+Unexpected coefficient: w(36,24):0.125
+Unexpected coefficient: w(36,25):0.125
+Unexpected coefficient: w(36,26):0.125
+Unexpected coefficient: w(36,27):-0.125
+Unexpected coefficient: w(36,32):0.125
+Unexpected coefficient: w(36,33):0.125
+Unexpected coefficient: w(36,34):-0.125
+Unexpected coefficient: w(36,35):-0.125
+Unexpected coefficient: w(36,36):0.125
+Unexpected coefficient: w(36,37):-0.125
+Unexpected coefficient: w(36,38):0.125
+Unexpected coefficient: w(36,39):-0.125
+Unexpected coefficient: w(37,4):-0.125
+Unexpected coefficient: w(37,5):0.125
+Unexpected coefficient: w(37,6):-0.125
+Unexpected coefficient: w(37,7):-0.125
+Unexpected coefficient: w(37,8):0.125
+Unexpected coefficient: w(37,9):-0.125
+Unexpected coefficient: w(37,10):-0.125
+Unexpected coefficient: w(37,11):0.125
+Unexpected coefficient: w(37,16):0.125
+Unexpected coefficient: w(37,17):-0.125
+Unexpected coefficient: w(37,18):0.125
+Unexpected coefficient: w(37,19):0.125
+Unexpected coefficient: w(37,28):0.125
+Unexpected coefficient: w(37,29):0.125
+Unexpected coefficient: w(37,30):0.125
+Unexpected coefficient: w(37,31):-0.125
+Unexpected coefficient: w(40,235):0.5
+Unexpected coefficient: w(40,253):-0.5
+Unexpected coefficient: w(40,272):-0.5
+Unexpected coefficient: w(41,235):-0.5
+Unexpected coefficient: w(41,253):-0.5
+Unexpected coefficient: w(41,272):0.5
+Unexpected coefficient: w(63,4):-0.125
+Unexpected coefficient: w(63,5):-0.125
+Unexpected coefficient: w(63,6):-0.125
+Unexpected coefficient: w(63,7):0.125
+Unexpected coefficient: w(63,8):-0.125
+Unexpected coefficient: w(63,9):-0.125
+Unexpected coefficient: w(63,10):0.125
+Unexpected coefficient: w(63,11):0.125
+Unexpected coefficient: w(63,20):-0.125
+Unexpected coefficient: w(63,21):-0.125
+Unexpected coefficient: w(63,22):-0.125
+Unexpected coefficient: w(63,23):-0.125
+Unexpected coefficient: w(63,24):-0.125
+Unexpected coefficient: w(63,25):0.125
+Unexpected coefficient: w(63,26):0.125
+Unexpected coefficient: w(63,27):0.125
+Unexpected coefficient: w(63,32):-0.125
+Unexpected coefficient: w(63,33):0.125
+Unexpected coefficient: w(63,34):0.125
+Unexpected coefficient: w(63,35):-0.125
+Unexpected coefficient: w(63,36):-0.125
+Unexpected coefficient: w(63,37):-0.125
+Unexpected coefficient: w(63,38):0.125
+Unexpected coefficient: w(63,39):0.125
+Unexpected coefficient: w(64,4):-0.125
+Unexpected coefficient: w(64,5):0.125
+Unexpected coefficient: w(64,6):0.125
+Unexpected coefficient: w(64,7):0.125
+Unexpected coefficient: w(64,8):0.125
+Unexpected coefficient: w(64,9):0.125
+Unexpected coefficient: w(64,10):0.125
+Unexpected coefficient: w(64,11):0.125
+Unexpected coefficient: w(64,20):-0.125
+Unexpected coefficient: w(64,21):0.125
+Unexpected coefficient: w(64,22):-0.125
+Unexpected coefficient: w(64,23):0.125
+Unexpected coefficient: w(64,24):-0.125
+Unexpected coefficient: w(64,25):-0.125
+Unexpected coefficient: w(64,26):-0.125
+Unexpected coefficient: w(64,27):0.125
+Unexpected coefficient: w(64,32):-0.125
+Unexpected coefficient: w(64,33):-0.125
+Unexpected coefficient: w(64,34):0.125
+Unexpected coefficient: w(64,35):0.125
+Unexpected coefficient: w(64,36):0.125
+Unexpected coefficient: w(64,37):-0.125
+Unexpected coefficient: w(64,38):0.125
+Unexpected coefficient: w(64,39):-0.125
+Unexpected coefficient: w(65,0):0.125
+Unexpected coefficient: w(65,1):-0.125
+Unexpected coefficient: w(65,2):0.125
+Unexpected coefficient: w(65,3):0.125
+Unexpected coefficient: w(65,12):-0.125
+Unexpected coefficient: w(65,13):-0.125
+Unexpected coefficient: w(65,14):-0.125
+Unexpected coefficient: w(65,15):0.125
+Unexpected coefficient: w(65,16):0.125
+Unexpected coefficient: w(65,17):-0.125
+Unexpected coefficient: w(65,18):0.125
+Unexpected coefficient: w(65,19):0.125
+Unexpected coefficient: w(65,28):-0.125
+Unexpected coefficient: w(65,29):-0.125
+Unexpected coefficient: w(65,30):-0.125
+Unexpected coefficient: w(65,31):0.125
+Unexpected coefficient: w(75,235):-0.5
+Unexpected coefficient: w(75,253):-0.5
+Unexpected coefficient: w(75,272):-0.5
+Unexpected coefficient: w(76,235):0.5
+Unexpected coefficient: w(76,253):-0.5
+Unexpected coefficient: w(76,272):0.5
+arr0:
+[[0.29356298 0.09883224 0.32685867 0.6170925  0.20080124 0.98071417
+  0.10413509]
+ [0.49773758 0.95834586 0.67288381 0.98508794 0.71496584 0.4881326
+  0.85210449]
+ [0.74500946 0.02629276 0.40766044 0.30332366 0.75508397 0.4556909
+  0.40674891]
+ [0.8312834  0.56185427 0.87143464 0.52085851 0.64037881 0.87052574
+  0.36668679]
+ [0.68698978 0.17160678 0.32709413 0.82657211 0.27135091 0.77370403
+  0.82288291]
+ [0.67089692 0.24768283 0.16623385 0.21225255 0.55970032 0.03433281
+  0.39319377]
+ [0.85154082 0.87125803 0.36778004 0.67850823 0.87075103 0.64600501
+  0.49725278]]
+arr1:
+[[0.76928979 0.83046559 0.31443143 0.82248891 0.78279523 0.62339572
+  0.65829769 0.26850387 0.09929712 0.83991768 0.78985723]
+ [0.58378852 0.89590219 0.07017663 0.18566839 0.19369845 0.22870636
+  0.89770497 0.5022386  0.278187   0.96315946 0.86752085]
+ [0.52584454 0.83168427 0.2785606  0.37724389 0.03509408 0.51148059
+  0.29577818 0.96016119 0.48903161 0.4920608  0.64683588]
+ [0.89351343 0.84528057 0.4043616  0.99968013 0.14958036 0.09200136
+  0.5386338  0.00416481 0.71401201 0.60226318 0.20745721]
+ [0.38527018 0.52368948 0.65844144 0.9457075  0.11244476 0.0211854
+  0.78303881 0.71327263 0.08397315 0.74364202 0.65158678]
+ [0.79640207 0.78011169 0.2001409  0.79582198 0.92483222 0.82150355
+  0.18281697 0.10948563 0.15892403 0.94999762 0.88624359]
+ [0.2343849  0.95739414 0.11918528 0.09310766 0.36797411 0.45528912
+  0.73436177 0.82780852 0.83832727 0.24243381 0.8176181 ]]
+res:
+[[1.88960264 2.09571991 0.78072785 1.98007177 1.3206132  1.28689048
+  1.12403775 0.7816713  0.91711973 1.98049261 1.74218989]
+ [3.04032258 4.23525854 1.47954522 2.96988497 1.59160805 1.7683671
+  3.19243522 2.53393079 2.2004057  3.46746277 3.45929835]
+ [1.82302768 2.37803719 1.10916956 2.18926665 1.30397637 1.28240242
+  1.77126752 1.53110874 0.9740429  2.12737225 2.16629784]
+ [2.91708833 3.72427953 1.39375662 2.97001116 1.88007612 2.03601492
+  2.51978375 2.19989589 1.53642854 3.37396484 3.30431651]
+ [2.45282446 3.2284911  1.08499756 2.49557135 1.75498831 1.72686102
+  2.10648129 1.5475987  1.7016882  2.53736325 2.60985372]
+ [1.27290946 1.79305744 0.7827298  1.46593245 0.8501059  0.79851266
+  1.56078091 1.1934966  0.75044592 1.55584152 1.61294504]
+ [2.92986611 3.80317013 1.46760065 3.06306073 1.8280756  1.75618158
+  2.98204475 2.12561662 1.58389329 3.52577641 3.35353545]]
+res_ref:
+[[1.88960264 2.09571991 0.78072785 1.98007177 1.3206132  1.28689048
+  1.12403775 0.7816713  0.91711973 1.98049261 1.74218989]
+ [3.04032258 4.23525854 1.47954522 2.96988497 1.59160805 1.7683671
+  3.19243522 2.53393079 2.2004057  3.46746277 3.45929835]
+ [1.82302768 2.37803719 1.10916956 2.18926665 1.30397637 1.28240242
+  1.77126752 1.53110874 0.9740429  2.12737225 2.16629784]
+ [2.91708833 3.72427953 1.39375662 2.97001116 1.88007612 2.03601492
+  2.51978375 2.19989589 1.53642854 3.37396484 3.30431651]
+ [2.45282446 3.2284911  1.08499756 2.49557135 1.75498831 1.72686102
+  2.10648129 1.5475987  1.7016882  2.53736325 2.60985372]
+ [1.27290946 1.79305744 0.7827298  1.46593245 0.8501059  0.79851266
+  1.56078091 1.1934966  0.75044592 1.55584152 1.61294504]
+ [2.92986611 3.80317013 1.46760065 3.06306073 1.8280756  1.75618158
+  2.98204475 2.12561662 1.58389329 3.52577641 3.35353545]]
+
+Result: True
+
