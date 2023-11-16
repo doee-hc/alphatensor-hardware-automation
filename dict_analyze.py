@@ -42,20 +42,6 @@ def nonzero_indices(arr, axis, index):
     else:
         raise ValueError("Invalid axis. Use 'row' or 'col'.")
 
-def column_merge(arr, res_dict, mask_col):
-    # 查找同类项
-    num_cols = arr.shape[1]
-    for i in range(num_cols):
-        for j in range(i + 1, num_cols):
-            # 遍历任意两列组合，相等为1,相反为-1,零保持不变
-            arr_col_nonzero_idices_i_eq_j = (arr[:,i] == arr[:,j]) & (arr[:, i] != 0)
-            arr_col_nonzero_idices_i_eqn_j = (arr[:,i] == -arr[:,j]) & (arr[:, i] != 0)
-            arr_col_nonzero_idices_i_j = arr_col_nonzero_idices_i_eq_j.astype(int) - arr_col_nonzero_idices_i_eqn_j.astype(int)
-            if (i not in mask_col) & (j not in mask_col):
-                # 只有 >= 2才有意义,可合并,加入字典
-                if sum(1 for element in arr_col_nonzero_idices_i_j if element != 0) >= 2:
-                    res_dict[(i, j)] = arr_col_nonzero_idices_i_j
-
 
 def find_u_v_max_path(u,v,w):
     res_mul_num = []
@@ -112,7 +98,7 @@ def find_most_significant_adder(arr,arr_coe,index,axis):
     elif axis == 'row':
        for i0 in range(arr_col):
             if arr[index][i0] != 0:
-                for i1 in range(i0+1,arr_row):
+                for i1 in range(i0+1,arr_col):
                     if arr[index][i1] != 0:
                         pe_num0 = arr[index][i0]
                         pe_num1 = arr[index][i1]
@@ -125,52 +111,13 @@ def find_most_significant_adder(arr,arr_coe,index,axis):
                                 ratio1 = arr_coe[j][i1]/coe_ref1
                                 if(ratio0 == ratio1):
                                     bias_dict[(i0,i1)] += 1
-    print(f"index:{index} bias：")
-    for key, value in bias_dict.items():
-        print(f"key: {key}, bias: {value}")
+    #print(f"index:{index} bias：")
+    #for key, value in bias_dict.items():
+    #    print(f"key: {key}, bias: {value}")
 
     return max(bias_dict, key=bias_dict.get)
                     
                     
-
-
-    ## 查找同类项
-    #num_cols = arr.shape[1]
-    ##res = [[0 for _ in range(num_cols)] for _ in range(arr.shape[0])] 
-    #res = np.zeros((arr.shape[0], num_cols))
-    #for j in range(num_cols):
-    #    if j != col:
-    #        # 相等为1,相反为-1,零保持不变
-    #        arr_col_nonzero_idices_i_eq_j = (arr[:,col] == arr[:,j]) & (arr[:, col] != 0)
-    #        arr_col_nonzero_idices_i_eqn_j = (arr[:,col] == -arr[:,j]) & (arr[:, col] != 0)
-    #        arr_col_nonzero_idices_i_j = arr_col_nonzero_idices_i_eq_j.astype(int) - arr_col_nonzero_idices_i_eqn_j.astype(int)
-    #        # 只有 >= 2才有意义,可合并,加入字典
-    #        if sum(1 for element in arr_col_nonzero_idices_i_j if element != 0) >= 2:
-    #            for i in range(len(res)):
-    #                res[i][j] = arr_col_nonzero_idices_i_j[i]
-    #
-    #bias_dict = {}
-    #for i in range(res.shape[1]):            
-    #    res_col_nonzero_indces = nonzero_indices(res,'col',i)
-    #    for m in range(res_col_nonzero_indces.shape[0]):
-    #        for n in range(m+1,res_col_nonzero_indces.shape[0]):
-    #            ind0 = res_col_nonzero_indces[m]
-    #            ind1 = res_col_nonzero_indces[n]
-    #            if (ind0,ind1) not in bias_dict: 
-    #                bias_dict[(ind0,ind1)] = 2
-    #                for j in range(i+1,res.shape[1]):
-    #                    if (res[ind0][i] == res[ind0][j]) & (res[ind1][i] == res[ind1][j]) | (res[ind0][i] == -res[ind0][j]) & (res[ind1][i] == -res[ind1][j]): 
-    #                        bias_dict[(ind0,ind1)] += 1
-
-
-    #print("最高优先级合并：")
-    #print(res)
-    print("bias：")
-    for key, value in bias_dict.items():
-        print(f"key: {key}, bias: {value}")
-
-    #for j in :
-    #    print(f"列: {key}, 同类项: {value}")
 
 
 
@@ -181,6 +128,8 @@ class PE:
         self.level = level
         self.in0 = in0
         self.in1 = in1
+        self.coe0 = 0.0
+        self.coe1 = 0.0
         i0 = ''
         i1 = ''
         if typeofPE == 'u_add':
@@ -290,12 +239,12 @@ def refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,arch,level):
         in1 = pe.in1
         index = pe.index
 
-        print(f"refresh: pe{pe.pe_number}")
-        print(f"{pe.level}")
-        print(f"name: {pe.name}")
-        print(f"index: {pe.index}")
-        print(f"in0: {pe.in0}")
-        print(f"in1: {pe.in1}")
+        #print(f"refresh: pe{pe.pe_number}")
+        #print(f"{pe.level}")
+        #print(f"name: {pe.name}")
+        #print(f"index: {pe.index}")
+        #print(f"in0: {pe.in0}")
+        #print(f"in1: {pe.in1}")
 
         if pe.typeofPE == 'u_add':
             for i in range(u.shape[1]):
@@ -327,8 +276,6 @@ def refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,arch,level):
             u_coe[in0][index] = 1
             u_coe[in1][index] = 0
 
-            print(f"u:\r\n{u}")
-            print(f"u_coe:\r\n{u_coe}")
 
         if pe.typeofPE == 'v_add':
             for i in range(v.shape[1]):
@@ -359,8 +306,6 @@ def refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,arch,level):
             v[in1][index] = 0
             v_coe[in0][index] = 1 
             v_coe[in1][index] = 0
-            print(f"v:\r\n{v}")
-            print(f"v_coe:\r\n{v_coe}")
 
         if pe.typeofPE == 'mul':
             pe.coe0 = u_coe[in0][index]
@@ -393,19 +338,16 @@ def refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,arch,level):
                         w_act[i][in1] = 0
                         w_coe[i][in0] = ratio0
                         w_coe[i][in1] = 0
-                        #new_pe = PE(i,level,'w_ratio',in0,i,ratio0,pe.pe_number) # ratio作为系数coe0, pe.number作为输入, in0是列, i是行
-                        #name_exists = any(pe_this.name == new_pe.name for pe_this in arch[level])
-                        #if name_exists :
-                        #    PE.pe_counter -= 1
-                        #else:
-                        #    # 将 PE 对象添加到相应级别的列表中
-                        #    arch[level].append(new_pe)
+
             pe.coe0 = w_coe[index][in0]
             pe.coe1 = w_coe[index][in1]
             w_act[index][in0] = pe.pe_number
             w_act[index][in1] = 0
             w_coe[index][in0] = 1
             w_coe[index][in1] = 0
+            print(f"{pe.level}")
+            print(f'refresh {pe.name}')
+            print(f'w_act\r\n{w_act}')
 
 
 def algorithm_verify(u,v,w,arr0,arr1):
@@ -422,24 +364,15 @@ def algorithm_verify(u,v,w,arr0,arr1):
         for j in range(u.shape[0]):
             # row
             u_equation += u_col[j]*arr0_flatten[j]
-            if u_col[j] != 1 and u_col[j] != -1 and u_col[j] != 0:
-                print(f'Unexpected coefficient: u({j},{i}):{u_col[j]}')
-            #if u_col[j] == 1:
-            #    u_equation += arr0_flatten[j]
-            #elif u_col[j] == -1:
-            #    u_equation -= arr0_flatten[j]
+            #if u_col[j] != 1 and u_col[j] != -1 and u_col[j] != 0:
+            #    print(f'Unexpected coefficient: u({j},{i}):{u_col[j]}')
 
         for j in range(v.shape[0]):
             # row
             v_equation += v_col[j]*arr1_flatten[j]
-            if v_col[j] != 1 and v_col[j] != -1 and v_col[j] != 0:
-                print(f'Unexpected coefficient: v({j},{i}):{v_col[j]}')
-            #if v_col[j] == 1:
-            #    v_equation += arr1_flatten[j]
-            #elif v_col[j] == -1:
-            #    v_equation -= arr1_flatten[j]
+            #if v_col[j] != 1 and v_col[j] != -1 and v_col[j] != 0:
+            #    print(f'Unexpected coefficient: v({j},{i}):{v_col[j]}')
         m[i] = u_equation * v_equation
-        #print(f'm{i+1}={m[i]}')
 
 
     res_flatten = np.zeros(w.shape[0])
@@ -448,168 +381,33 @@ def algorithm_verify(u,v,w,arr0,arr1):
         w_equation = 0
         for j in range(w.shape[1]):
             w_equation += w_row[j]*m[j]
-            if w_row[j] != 1 and w_row[j] != -1 and w_row[j] != 0:
-                print(f'Unexpected coefficient: w({i},{j}):{w_row[j]}')
-            #if w_row[j] == 1:
-            #    w_equation += m[j]
-            #elif w_row[j] == -1:
-            #    w_equation -= m[j]
+            #if w_row[j] != 1 and w_row[j] != -1 and w_row[j] != 0:
+            #    print(f'Unexpected coefficient: w({i},{j}):{w_row[j]}')
         res_flatten[i] = w_equation
-        #print(f'c{i+1}={w_equation}')
     return   res_flatten.reshape(arr1.shape[1],arr0.shape[0]).T
 
 
 def print_equations(u, v, w):
-    #for i in range(u.shape[1]):
-    #    u_col = u[:, i]
-    #    v_col = v[:, i]
-    #    #w_row = w[:, i]
-
-    #    u_equation = ""
-    #    v_equation = ""
-
-    #    #print(f"u_row_num = {u.shape[0]}")
-    #    #print(f"u_col_num = {u.shape[1]}")
-    #    #print(f"v_row_num = {v.shape[0]}")
-    #    #print(f"v_col_num = {v.shape[1]}")
-
-    #    for j in range(u.shape[0]):
-    #        if u_col[j] == 1:
-    #            u_equation += f" + a{j+1}"
-    #        elif u_col[j] == -1:
-    #            u_equation += f" - a{j+1}"
-
-    #    #if len(u_equation) != 0 :
-    #    if u_equation[1] == '+':
-    #        u_equation = u_equation[3:]  # Remove leading space and plus sign
-
-    #    for j in range(v.shape[0]):
-    #        if v_col[j] == 1:
-    #            v_equation += f" + b{j+1}"
-    #        elif v_col[j] == -1:
-    #            v_equation += f" - b{j+1}"
-    #    #if len(v_equation) != 0 :
-    #    if v_equation[1] == '+':
-    #        v_equation = v_equation[3:]
-
-    #    equation = f"m{i+1} = ({u_equation}) * ({v_equation})"
-    #    print(equation)
-
-    #for i in range(w.shape[0]):
-    #    w_row = w[i,:]
-    #    w_equation = ""
-    #    for j in range(w.shape[1]):
-    #        if w_row[j] == 1:
-    #            w_equation += f" + m{j+1}"
-    #        elif w_row[j] == -1:
-    #            w_equation += f" - m{j+1}"
-    #    if len(w_equation) != 0 :
-    #        if w_equation[1] == '+':
-    #            w_equation = w_equation[3:]
-    #    equation = f"c{i+1} = ({w_equation})"
-    #    print(equation)
-
-
-
-
-    # 获取数组的列数
-    #num_cols = v.shape[1]
-    # 用于记录任意两列相同元素个数的矩阵
-    #same_elements_count = np.zeros((num_cols, num_cols), dtype=int)
-    #
-    ## 遍历每一对列
-    #for i in range(num_cols):
-    #    for j in range(i + 1, num_cols):
-    #        # 计算相同元素的个数
-    #        count = np.sum((v[:, i] == v[:, j]) & (v[:, i] != 0))
-    #        same_elements_count[i, j] = count
-    #        same_elements_count[j, i] = count  # 对称性，因为相同的元素数量是一样的
-    #        print(f"same_element: {i},{j}:{count}")
-    #
-    ## 打印结果
-    #print("相同元素的个数矩阵:")
-    #print(same_elements_count)
-
-
-    # 预处理，找到可以在前两层完成运算的m，直接分配
-    add_index = 0
-    mul_index = 0
-    level0_calc = ""
-    level1_calc = ""
-    u_nonzero_index = ""
-    v_nonzero_index = ""
-
-
-
-    # 记录每个m的完成情况，1完成，0未完成
-    # m = np.zeros(u.shape[1]), dtype=int)
-
-    # 每层m的完成情况：u v矩阵会消去，如果u v某一列全为零，则对应m完成
-    
-    col_distributed = []
-
-    print("\r\nSome calculation can be distributed directly.")
-    print("Notice that \'+\' and \'*\' has coefficient actrually,here we omit.")
-    for i in range(u.shape[1]):
-        u_nonzero_index = nonzero_indices(u, 'col', i)
-        v_nonzero_index = nonzero_indices(v, 'col', i)
-        if (count_nonzero(u, 'col', i) == 1) & (count_nonzero(v, 'col', i) == 1):
-            in0 = u_nonzero_index[0]
-            in1 = v_nonzero_index[0]
-
-            # level0 分配一个乘法器
-            level0_calc += f"mul{mul_index}: a{u_nonzero_index[0]} * b{v_nonzero_index[0]}\r\n"
-
-            mul_index += 1
-            col_distributed.append(i) 
-        elif (count_nonzero(u, 'col', i) == 1) & (count_nonzero(v, 'col', i) == 2):
-            # level0 分配一个加法器
-            # level1 分配一个乘法器
-            level0_calc += f"add{add_index}: b{v_nonzero_index[0]} + b{v_nonzero_index[1]}\r\n"
-            level1_calc += f"mul{mul_index}: b{u_nonzero_index[0]} * add{add_index}\r\n"
-            mul_index += 1
-            add_index += 1
-            col_distributed.append(i) 
-        elif (count_nonzero(u, 'col', i) == 2) & (count_nonzero(v, 'col', i) == 1):
-            # level0 分配一个加法器
-            # level1 分配一个乘法器
-            level0_calc += f"add{add_index}: b{u_nonzero_index[0]} + b{u_nonzero_index[1]}\r\n"
-            level1_calc += f"mul{mul_index}: b{v_nonzero_index[0]} * add{add_index}\r\n"
-            mul_index += 1
-            add_index += 1
-            col_distributed.append(i) 
-        elif (count_nonzero(u, 'col', i) == 2) & (count_nonzero(v, 'col', i) == 2):
-            # level0 分配两个加法器
-            # level1 分配一个乘法器
-            level0_calc += f"add{add_index}: b{u_nonzero_index[0]} + b{u_nonzero_index[1]}\r\n"
-            add_index += 1
-            level0_calc += f"add{add_index}: b{v_nonzero_index[0]} + b{v_nonzero_index[1]}\r\n"
-            level1_calc += f"mul{mul_index}: add{add_index - 1} * add{add_index}\r\n"
-            mul_index += 1
-            add_index += 1
-            col_distributed.append(i) 
-    
-    print(f"level0:\r\n{level0_calc}")
-    print(f"level1:\r\n{level1_calc}")
 
     u_coe = np.zeros(u.shape)
     v_coe = np.zeros(v.shape)
     w_coe = np.zeros(w.shape)
 
-    w_act = np.zeros(w.shape)
+    w_act = np.zeros(w.shape,dtype=int)
     pe_arch  = {}
 
     coefficient_backup(u,v,w,u_coe,v_coe,w_coe)
     
-    print(u)
-    print(v)
-    print(w)
+    #print(u)
+    #print(v)
+    #print(w)
 
-    print(u_coe)
-    print(v_coe)
-    print(w_coe)
+    #print(u_coe)
+    #print(v_coe)
+    #print(w_coe)
     
     (total_level,max_path_col) = find_u_v_max_path(u,v,w)
+    print(f'total_level:{total_level}')
 
     for level_n in range(total_level):
 
@@ -630,8 +428,8 @@ def print_equations(u, v, w):
             print(f'v most significant:{v_in0},{v_in1}')
         if(w_nonzero_count > 2):
             (w_in0,w_in1) = find_most_significant_adder(w_act,w_coe,max_path_row,'row')
-            distribute_pe(u,v,w,w_act,max_path_col,pe_arch,f'level{level_n}','w_add',w_in0,w_in1)
-            print(f'w most significant:{w_in0},{v_in1}')
+            distribute_pe(u,v,w,w_act,max_path_row,pe_arch,f'level{level_n}','w_add',w_in0,w_in1)
+            print(f'w most significant:{w_in0},{w_in1}')
 
         for i in range(u.shape[1]):
             u_nonzero_index = nonzero_indices(u, 'col', i)
@@ -660,62 +458,23 @@ def print_equations(u, v, w):
                 in0 = w_act_nonzero_index[0]
                 in1 = w_act_nonzero_index[1]
                 distribute_pe(u,v,w,w_act,i,pe_arch,f'level{level_n}','w_add',in0,in1)
+                #print(f'distribute w_add:{i},{in0},{in1}')
 
         refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,pe_arch,f'level{level_n}')
+        #print(f"u:\r\n{u}")
+        #print(f"v:\r\n{v}")
+        #print(f"w_act:\r\n{w_act}")
+        #print(f"u_coe:\r\n{u_coe}")
+        #print(f"v_coe:\r\n{v_coe}")
+        #print(f"w_coe:\r\n{w_coe}")
 
 
     # 打印arch
     for level, pe_list in pe_arch.items():
-        print(f"Level: {level}")
+        print(f"{level}:")
         for pe in pe_list:
             print(f"  PE Name: {pe.name}, Number: {pe.pe_number}, Type: {pe.typeofPE}, Inputs: {pe.in0}, {pe.in1}, coe: {pe.coe0}, {pe.coe1}")
 
 
-
-
-
-
-
-
-
-
-
-        
-    #for i in range(w.shape[0]):
-    #    mul_num = 0
-    #    add_num = count_nonzero(w, 'row', i) - 1 
-    #    for j in range(w.shape[1]):
-    #        if w[i,j] != 0:
-    #            # 查找res的相关数目
-    #            mul_num += 1
-    #            if count_nonzero(u, 'col', j) > 2:
-    #                
-    #            add_num += count_nonzero(u, 'col', j) - 1 
-    #            add_num += count_nonzero(v, 'col', j) - 1
-    #    res_mul_num.append(mul_num)
-    #    res_add_num.append(add_num)
-    #print("res_mul_num:", res_mul_num)
-    #print("res_add_num:", res_add_num)
-
-
-
-# Given matrices u, v, w
-#u = np.array([[0	, 1	, 1	, 0	, 1	, 1	, 0]	,
-#              [0	, 0	, -1	, 1	, 0	, 0	, 0]	,
-#              [1	, 1	, 1	, 0	, 1	, 0	, 0]	,
-#              [-1	, -1	, -1	, 0	, 0	, 0	, 1]])
-#
-#v = np.array([[0	, 0	, 0	, 0	, 1	, 1	, 0]	,
-#              [1	, 1	, 0	, 0	, 1	, 0	, 1]	,
-#              [0	, 1	, 1	, 1	, 1	, 0	, 0]	,
-#              [0	, 1	, 1	, 0	, 1	, 0	, 1]])
-#
-#w = np.array([[0	, 0	, 0	, 1	, 0	, 1	, 0]	,
-#              [0	, -1	, 0	, 0	, 1	, -1	, -1]	,
-#              [-1	, 1	, -1	, -1	, 0	, 0	, 0]	,
-#              [1	, 0	, 0	, 0	, 0	, 0	, 1]])
-
-# Print equations m1 to m7
-#print_equations(u, v, w)
 
 

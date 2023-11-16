@@ -46,18 +46,19 @@ for key in factorizations:
 
   if(key==f'{n},{m},{p}'):
 
-
-    arr0 =  np.random.rand(n, m)
-    arr1 =  np.random.rand(m, p)
-    res = dict_analyze.algorithm_verify(u,v,w,arr0,arr1)
-
-    dict_analyze.print_equations(u,v,w)
     u_df = pd.DataFrame(u)
     v_df = pd.DataFrame(v)
     w_df = pd.DataFrame(w)
     u_df.to_excel('u_sheet.xlsx', index=False, header=False)
     v_df.to_excel('v_sheet.xlsx', index=False, header=False)
     w_df.to_excel('w_sheet.xlsx', index=False, header=False)
+
+    arr0 =  np.random.rand(n, m)
+    arr1 =  np.random.rand(m, p)
+    res = dict_analyze.algorithm_verify(u,v,w,arr0,arr1)
+
+    dict_analyze.print_equations(u,v,w)
+
 
     res_ref = np.dot(arr0, arr1)
     #result_eq = np.array_equal(res0, res1)
