@@ -128,6 +128,8 @@ class PE:
         self.level = level
         self.in0 = in0
         self.in1 = in1
+        self.in0_pe_num = pe_number0
+        self.in1_pe_num = pe_number1
         self.coe0 = 0.0
         self.coe1 = 0.0
         i0 = ''
@@ -161,7 +163,7 @@ class PE:
 
         self.typeofPE = typeofPE
         self.name = f"{typeofPE}_{i0}_{i1}"
-        self.pe_number = PE.pe_counter # 保存PE的编号
+        self.number = PE.pe_counter # 保存PE的编号
         PE.pe_counter += 1  # 递增编号
 
 
@@ -239,7 +241,7 @@ def refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,arch,level):
         in1 = pe.in1
         index = pe.index
 
-        #print(f"refresh: pe{pe.pe_number}")
+        #print(f"refresh: pe{pe.number}")
         #print(f"{pe.level}")
         #print(f"name: {pe.name}")
         #print(f"index: {pe.index}")
@@ -264,14 +266,14 @@ def refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,arch,level):
                     ratio1 = coe1/coe_ref1
 
                     if(ratio0 == ratio1 and ratio0 != 0):
-                        u[in0][i] = pe.pe_number
+                        u[in0][i] = pe.number
                         u[in1][i] = 0
                         u_coe[in0][i] = ratio0
                         u_coe[in1][i] = 0
             # 最后更新 index 位置
             pe.coe0 = u_coe[in0][index]
             pe.coe1 = u_coe[in1][index]
-            u[in0][index] = pe.pe_number
+            u[in0][index] = pe.number
             u[in1][index] = 0
             u_coe[in0][index] = 1
             u_coe[in1][index] = 0
@@ -295,14 +297,14 @@ def refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,arch,level):
                     ratio1 = coe1/coe_ref1
 
                     if(ratio0 == ratio1 and ratio0 != 0):
-                        v[in0][i] = pe.pe_number
+                        v[in0][i] = pe.number
                         v[in1][i] = 0
                         v_coe[in0][i] = ratio0
                         v_coe[in1][i] = 0
             # 最后更新 index 位置
             pe.coe0 = v_coe[in0][index]
             pe.coe1 = v_coe[in1][index]
-            v[in0][index] = pe.pe_number
+            v[in0][index] = pe.number
             v[in1][index] = 0
             v_coe[in0][index] = 1 
             v_coe[in1][index] = 0
@@ -318,7 +320,7 @@ def refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,arch,level):
                 ratio = w_coe[i][index]
                 if (ratio != 0):
                     # 激活w
-                    w_act[i][index] = pe.pe_number
+                    w_act[i][index] = pe.number
         if pe.typeofPE == 'w_add':
             for i in range(w.shape[0]):
                 if i != index :
@@ -334,20 +336,50 @@ def refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,arch,level):
                     ratio1 = coe1/coe_ref1
 
                     if(ratio0 == ratio1 and ratio0 != 0):
-                        w_act[i][in0] = pe.pe_number
+                        w_act[i][in0] = pe.number
                         w_act[i][in1] = 0
                         w_coe[i][in0] = ratio0
                         w_coe[i][in1] = 0
 
             pe.coe0 = w_coe[index][in0]
             pe.coe1 = w_coe[index][in1]
-            w_act[index][in0] = pe.pe_number
+            w_act[index][in0] = pe.number
             w_act[index][in1] = 0
             w_coe[index][in0] = 1
             w_coe[index][in1] = 0
-            print(f"{pe.level}")
+            print(f"level{pe.level}")
             print(f'refresh {pe.name}')
             print(f'w_act\r\n{w_act}')
+
+def search_pe_level(arch,target_number):
+    for level,pe_list in arch.items():
+        for pe in pe_list:
+            if pe.number == target_number:
+                return pe.level
+
+
+# 将无依赖的pe移到前级level
+def level_merge(arch):
+    for level, pe_list in arch.items():
+        pe_list_copy = pe_list[:]  # 创建 pe_list 的副本进行遍历
+        for pe in pe_list_copy:
+            in0_pe_number = pe.in0_pe_num
+            in1_pe_number = pe.in1_pe_num
+            if in0_pe_number == 1 and in1_pe_number == 1:
+                pe.level = 0
+            elif in0_pe_number == 1:
+                pe.level = search_pe_level(arch, in1_pe_number) + 1
+            elif in1_pe_number == 1:
+                pe.level = search_pe_level(arch, in0_pe_number) + 1
+            else:
+                level0 = search_pe_level(arch, in0_pe_number)
+                level1 = search_pe_level(arch, in1_pe_number)
+                pe.level = (level0 + 1) if level0 > level1 else (level1 + 1)
+            pe_to_move = arch[level].pop(arch[level].index(pe))  # 通过索引删除指定元素
+            arch[pe.level].append(pe_to_move)
+
+
+
 
 
 def algorithm_verify(u,v,w,arr0,arr1):
@@ -420,15 +452,15 @@ def print_equations(u, v, w):
 
         if(u_nonzero_count > 2):
             (u_in0,u_in1) = find_most_significant_adder(u,u_coe,max_path_col,'col')
-            distribute_pe(u,v,w,w_act,max_path_col,pe_arch,f'level{level_n}','u_add',u_in0,u_in1)
+            distribute_pe(u,v,w,w_act,max_path_col,pe_arch,level_n,'u_add',u_in0,u_in1)
             print(f'u most significant:{u_in0},{u_in1}')
         if(v_nonzero_count > 2):
             (v_in0,v_in1) = find_most_significant_adder(v,v_coe,max_path_col,'col')
-            distribute_pe(u,v,w,w_act,max_path_col,pe_arch,f'level{level_n}','v_add',v_in0,v_in1)
+            distribute_pe(u,v,w,w_act,max_path_col,pe_arch,level_n,'v_add',v_in0,v_in1)
             print(f'v most significant:{v_in0},{v_in1}')
         if(w_nonzero_count > 2):
             (w_in0,w_in1) = find_most_significant_adder(w_act,w_coe,max_path_row,'row')
-            distribute_pe(u,v,w,w_act,max_path_row,pe_arch,f'level{level_n}','w_add',w_in0,w_in1)
+            distribute_pe(u,v,w,w_act,max_path_row,pe_arch,level_n,'w_add',w_in0,w_in1)
             print(f'w most significant:{w_in0},{w_in1}')
 
         for i in range(u.shape[1]):
@@ -439,17 +471,17 @@ def print_equations(u, v, w):
             if (u_nonzero_count == 1) and (v_nonzero_count == 1):
                 in0 = u_nonzero_index[0]
                 in1 = v_nonzero_index[0]
-                distribute_pe(u,v,w,w_act,i,pe_arch,f'level{level_n}','mul',in0,in1)
+                distribute_pe(u,v,w,w_act,i,pe_arch,level_n,'mul',in0,in1)
 
             if (u_nonzero_count == 2):
                 in0 = u_nonzero_index[0]
                 in1 = u_nonzero_index[1]
-                distribute_pe(u,v,w,w_act,i,pe_arch,f'level{level_n}','u_add',in0,in1)
+                distribute_pe(u,v,w,w_act,i,pe_arch,level_n,'u_add',in0,in1)
 
             if (v_nonzero_count == 2):
                 in0 = v_nonzero_index[0]
                 in1 = v_nonzero_index[1]
-                distribute_pe(u,v,w,w_act,i,pe_arch,f'level{level_n}','v_add',in0,in1)
+                distribute_pe(u,v,w,w_act,i,pe_arch,level_n,'v_add',in0,in1)
 
         for i in range(w.shape[0]):
             w_act_nonzero_index = nonzero_indices(w_act, 'row', i) 
@@ -457,10 +489,10 @@ def print_equations(u, v, w):
             if(w_act_nonzero_count == 2):
                 in0 = w_act_nonzero_index[0]
                 in1 = w_act_nonzero_index[1]
-                distribute_pe(u,v,w,w_act,i,pe_arch,f'level{level_n}','w_add',in0,in1)
+                distribute_pe(u,v,w,w_act,i,pe_arch,level_n,'w_add',in0,in1)
                 #print(f'distribute w_add:{i},{in0},{in1}')
 
-        refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,pe_arch,f'level{level_n}')
+        refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,pe_arch,level_n)
         #print(f"u:\r\n{u}")
         #print(f"v:\r\n{v}")
         #print(f"w_act:\r\n{w_act}")
@@ -468,12 +500,14 @@ def print_equations(u, v, w):
         #print(f"v_coe:\r\n{v_coe}")
         #print(f"w_coe:\r\n{w_coe}")
 
+    level_merge(pe_arch)
 
     # 打印arch
     for level, pe_list in pe_arch.items():
-        print(f"{level}:")
+        print(f"level{level}:")
         for pe in pe_list:
-            print(f"  PE Name: {pe.name}, Number: {pe.pe_number}, Type: {pe.typeofPE}, Inputs: {pe.in0}, {pe.in1}, coe: {pe.coe0}, {pe.coe1}")
+            print(f"  PE Name: {pe.name}, Number: {pe.number}, Type: {pe.typeofPE}, Inputs: {pe.in0}, {pe.in1}, coe: {pe.coe0}, {pe.coe1}")
+
 
 
 
