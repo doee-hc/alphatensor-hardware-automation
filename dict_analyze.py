@@ -457,7 +457,7 @@ def algorithm_verify(u,v,w,arr0,arr1):
     return   res_flatten.reshape(arr1.shape[1],arr0.shape[0]).T
 
 
-def print_equations(u, v, w):
+def print_equations(u, v, w, debug):
 
     u_coe = np.zeros(u.shape)
     v_coe = np.zeros(v.shape)
@@ -481,46 +481,49 @@ def print_equations(u, v, w):
 
     level_n = 0;
 
-    ## 创建颜色映射，0元素为白色，其余相同数字为同一种颜色
-    #cmap = plt.cm.get_cmap('viridis', total_level)
-    #cmap.set_under('white')  # 设置小于最小值的颜色为白色
-    #
-    #dpi = plt.gcf().get_dpi()
-    #figsize=(1920 / dpi, 1080 / dpi)
+    if debug == 'animation' :
+        # 创建颜色映射，0元素为白色，其余相同数字为同一种颜色
+        cmap = plt.cm.get_cmap('viridis', total_level)
+        cmap.set_under('white')  # 设置小于最小值的颜色为白色
+        
+        dpi = plt.gcf().get_dpi()
+        figsize=(1920 / dpi, 1080 / dpi)
 
-    #fig, axs = plt.subplots(3, 1, figsize=figsize)  # 1 行 3 列的子图
-    #
-    ## 设置图表标题
-    #fig.suptitle('Matrix Animation')
-    #
-    #matrices = [u, v, w_act]
-    #titles = ['Matrix U', 'Matrix V', 'Matrix W_ACT']
+        fig, axs = plt.subplots(3, 1, figsize=figsize)  # 1 行 3 列的子图
+        
+        # 设置图表标题
+        fig.suptitle('Matrix Animation')
+        
+        matrices = [u, v, w_act]
+        titles = ['Matrix U', 'Matrix V', 'Matrix W_ACT']
 
-    #texts = []
+        texts = []
 
-    #for i, ax in enumerate(axs):
-    #    ax.set_title(titles[i])
-    #    im = ax.imshow(matrices[i], cmap=cmap, interpolation='none')
-    #    texts.append( [[None for _ in range(len(matrices[i][0]))] for _ in range(len(matrices[i]))] ) # 存储文本注释的二维列表
+        for i, ax in enumerate(axs):
+            ax.set_title(titles[i])
+            im = ax.imshow(matrices[i], cmap=cmap, interpolation='none')
+            texts.append( [[None for _ in range(len(matrices[i][0]))] for _ in range(len(matrices[i]))] ) # 存储文本注释的二维列表
 
     while(check_one_nonzero(w_coe) != True):
-    #    for i, matrix in enumerate(matrices):
+        if debug == 'animation' :
+            for i, matrix in enumerate(matrices):
 
-    #        # 更新图表数据
-    #        im = axs[i].imshow(matrices[i], cmap=cmap, interpolation='none')
+                # 更新图表数据
+                im = axs[i].imshow(matrices[i], cmap=cmap, interpolation='none')
 
-    #        # 在每个单元格中心添加相应的数字
-    #        for j in range(len(matrices[i])):
-    #            for k in range(len(matrices[i][0])):
-    #                if texts[i][j][k] is not None:
-    #                    texts[i][j][k].set_text('')
-    #                if matrices[i][j, k] != 0:
-    #                    texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black')
-    #                else:
-    #                    texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black', bbox=dict(facecolor='white', edgecolor='white'))
+                # 在每个单元格中心添加相应的数字
+                for j in range(len(matrices[i])):
+                    for k in range(len(matrices[i][0])):
+                        if texts[i][j][k] is not None:
+                            texts[i][j][k].set_text('')
+                        if matrices[i][j, k] != 0:
+                            texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black')
+                        else:
+                            texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black', bbox=dict(facecolor='white', edgecolor='white'))
 
-    #    plt.tight_layout()  # 自适应调整子图布局
-    #    plt.pause(0.01)  # 暂停0.5秒
+            #plt.tight_layout()  # 自适应调整子图布局
+            #plt.pause(0.5)  # 暂停0.5秒
+            plt.waitforbuttonpress() # 等待任意按键按下
 
         print(f'level:{level_n}')
         (this_total_path,max_path_col) = find_u_v_max_path(u,v,w_coe)
@@ -583,21 +586,22 @@ def print_equations(u, v, w):
         #print(f"v_coe:\r\n{v_coe}")
         #print(f"w_coe:\r\n{w_coe}")
 
-    #for i, matrix in enumerate(matrices):
+    if debug == 'animation' :
+        for i, matrix in enumerate(matrices):
 
-    #    # 更新图表数据
-    #    im = axs[i].imshow(matrices[i], cmap=cmap, interpolation='none')
+            # 更新图表数据
+            im = axs[i].imshow(matrices[i], cmap=cmap, interpolation='none')
 
-    #    # 在每个单元格中心添加相应的数字
-    #    for j in range(len(matrices[i])):
-    #        for k in range(len(matrices[i][0])):
-    #            if texts[i][j][k] is not None:
-    #                texts[i][j][k].set_text('')
-    #            if matrices[i][j, k] != 0:
-    #                texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black')
-    #            else:
-    #                texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black', bbox=dict(facecolor='white', edgecolor='white'))
-    #plt.show()
+            # 在每个单元格中心添加相应的数字
+            for j in range(len(matrices[i])):
+                for k in range(len(matrices[i][0])):
+                    if texts[i][j][k] is not None:
+                        texts[i][j][k].set_text('')
+                    if matrices[i][j, k] != 0:
+                        texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black')
+                    else:
+                        texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black', bbox=dict(facecolor='white', edgecolor='white'))
+        plt.show()
 
     level_merge(pe_arch)
 

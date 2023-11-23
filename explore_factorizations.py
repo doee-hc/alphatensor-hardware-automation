@@ -16,7 +16,7 @@ Loading factorizations found by AlphaTensor and recombination.
 """
 
 import numpy as np
-import dict_analyze
+import dict_analyze as da
 import pandas as pd
 import sys
 
@@ -33,9 +33,10 @@ with open(filename, 'rb') as f:
 # np 打印参数
 np.set_printoptions(threshold=np.inf)
 
-if len(sys.argv) == 4:  # 脚本名也算一个参数，所以检查长度是否为4
-    script_name, n, m, p = sys.argv
+if len(sys.argv) >= 4:  # 脚本名也算一个参数，所以检查长度是否为4
+    script_name, n, m, p, debug= sys.argv
     n, m, p = int(n), int(m), int(p)    
+    debug = debug 
 
 # Print available factorizations and their shapes.
 for key in factorizations:
@@ -55,9 +56,9 @@ for key in factorizations:
 
     arr0 =  np.random.rand(n, m)
     arr1 =  np.random.rand(m, p)
-    res = dict_analyze.algorithm_verify(u,v,w,arr0,arr1)
+    res = da.algorithm_verify(u,v,w,arr0,arr1)
 
-    dict_analyze.print_equations(u,v,w)
+    da.print_equations(u,v,w,debug)
 
 
     res_ref = np.dot(arr0, arr1)
