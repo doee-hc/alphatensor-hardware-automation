@@ -33,10 +33,15 @@ with open(filename, 'rb') as f:
 # np 打印参数
 np.set_printoptions(threshold=np.inf)
 
-if len(sys.argv) >= 4:  # 脚本名也算一个参数，所以检查长度是否为4
+if len(sys.argv) == 5:  # 脚本名也算一个参数，所以检查长度是否为4
     script_name, n, m, p, debug= sys.argv
     n, m, p = int(n), int(m), int(p)    
     debug = debug 
+
+if len(sys.argv) == 4:  # 脚本名也算一个参数，所以检查长度是否为4
+    script_name, n, m, p= sys.argv
+    n, m, p = int(n), int(m), int(p)    
+    debug = ''
 
 # Print available factorizations and their shapes.
 for key in factorizations:

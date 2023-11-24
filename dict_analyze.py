@@ -482,48 +482,78 @@ def print_equations(u, v, w, debug):
     level_n = 0;
 
     if debug == 'animation' :
-        # 创建颜色映射，0元素为白色，其余相同数字为同一种颜色
-        cmap = plt.cm.get_cmap('viridis', total_level)
-        cmap.set_under('white')  # 设置小于最小值的颜色为白色
-        
-        dpi = plt.gcf().get_dpi()
-        figsize=(1920 / dpi, 1080 / dpi)
 
-        fig, axs = plt.subplots(3, 1, figsize=figsize)  # 1 行 3 列的子图
-        
-        # 设置图表标题
-        fig.suptitle('Matrix Animation')
-        
-        matrices = [u, v, w_act]
-        titles = ['Matrix U', 'Matrix V', 'Matrix W_ACT']
+        # 创建一个包含三个子图的图像布局
+        fig, axs = plt.subplots(3, 1, figsize=(24,12))
 
-        texts = []
+        # 在每个子图中显示矩阵图像
+        axs[0].imshow(u, cmap='viridis', interpolation='nearest')
+        axs[0].set_title('Matrix U')
+        
+        axs[1].imshow(v, cmap='plasma', interpolation='nearest')
+        axs[1].set_title('Matrix V')
+        
+        axs[2].imshow(w_act, cmap='magma', interpolation='nearest')
+        axs[2].set_title('Matrix W_ACT')
+        
+        plt.tight_layout()  # 自动调整子图布局，避免重叠
+        
+        #plt.show()
+        # 创建热力图
+        #plt.figure()
+        #img = plt.imshow(u, cmap='viridis', interpolation='nearest')
+        #plt.colorbar()
 
-        for i, ax in enumerate(axs):
-            ax.set_title(titles[i])
-            im = ax.imshow(matrices[i], cmap=cmap, interpolation='none')
-            texts.append( [[None for _ in range(len(matrices[i][0]))] for _ in range(len(matrices[i]))] ) # 存储文本注释的二维列表
+        ## 创建颜色映射，0元素为白色，其余相同数字为同一种颜色
+        #cmap = plt.cm.get_cmap('viridis', total_level)
+        #cmap.set_under('white')  # 设置小于最小值的颜色为白色
+        #
+        #dpi = plt.gcf().get_dpi()
+        #figsize=(1920 / dpi, 1080 / dpi)
+
+        #fig, axs = plt.subplots(3, 1, figsize=figsize)  # 1 行 3 列的子图
+        #
+        ## 设置图表标题
+        #fig.suptitle('Matrix Animation')
+        #
+        #matrices = [u, v, w_act]
+        #titles = ['Matrix U', 'Matrix V', 'Matrix W_ACT']
+
+        #texts = []
+
+        #for i, ax in enumerate(axs):
+        #    ax.set_title(titles[i])
+        #    im = ax.imshow(matrices[i], cmap=cmap, interpolation='none')
+        #    texts.append( [[None for _ in range(len(matrices[i][0]))] for _ in range(len(matrices[i]))] ) # 存储文本注释的二维列表
 
     while(check_one_nonzero(w_coe) != True):
         if debug == 'animation' :
-            for i, matrix in enumerate(matrices):
 
-                # 更新图表数据
-                im = axs[i].imshow(matrices[i], cmap=cmap, interpolation='none')
-
-                # 在每个单元格中心添加相应的数字
-                for j in range(len(matrices[i])):
-                    for k in range(len(matrices[i][0])):
-                        if texts[i][j][k] is not None:
-                            texts[i][j][k].set_text('')
-                        if matrices[i][j, k] != 0:
-                            texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black')
-                        else:
-                            texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black', bbox=dict(facecolor='white', edgecolor='white'))
-
-            #plt.tight_layout()  # 自适应调整子图布局
-            #plt.pause(0.5)  # 暂停0.5秒
+            plt.tight_layout()  # 自适应调整子图布局
+            axs[0].imshow(u, cmap='viridis', interpolation='nearest')
+            axs[1].imshow(v, cmap='plasma', interpolation='nearest')
+            axs[2].imshow(w_act, cmap='magma', interpolation='nearest')
             plt.waitforbuttonpress() # 等待任意按键按下
+
+
+            #for i, matrix in enumerate(matrices):
+
+            #    # 更新图表数据
+            #    im = axs[i].imshow(matrices[i], cmap=cmap, interpolation='none')
+
+            #    # 在每个单元格中心添加相应的数字
+            #    for j in range(len(matrices[i])):
+            #        for k in range(len(matrices[i][0])):
+            #            if texts[i][j][k] is not None:
+            #                texts[i][j][k].set_text('')
+            #            if matrices[i][j, k] != 0:
+            #                texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black')
+            #            else:
+            #                texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black', bbox=dict(facecolor='white', edgecolor='white'))
+
+            ##plt.tight_layout()  # 自适应调整子图布局
+            ##plt.pause(0.5)  # 暂停0.5秒
+            #plt.waitforbuttonpress() # 等待任意按键按下
 
         print(f'level:{level_n}')
         (this_total_path,max_path_col) = find_u_v_max_path(u,v,w_coe)
@@ -534,19 +564,35 @@ def print_equations(u, v, w, debug):
         u_nonzero_count = count_nonzero(u, 'col', max_path_col)
         v_nonzero_count = count_nonzero(v, 'col', max_path_col)
         w_nonzero_count = count_nonzero(w_act, 'row', max_path_row)
+        
+        if u_nonzero_count > v_nonzero_count :
+            if(u_nonzero_count > 2):
+                (u_in0,u_in1) = find_most_significant_adder(u,u_coe,max_path_col,'col')
+                distribute_pe(u,v,w,u_coe,v_coe,w_coe,w_act,max_path_col,pe_arch,level_n,'u_add',u_in0,u_in1)
+                #print(f'u most significant:{u_in0},{u_in1}')
+        else:
+            if(v_nonzero_count > 2):
+                (v_in0,v_in1) = find_most_significant_adder(v,v_coe,max_path_col,'col')
+                distribute_pe(u,v,w,u_coe,v_coe,w_coe,w_act,max_path_col,pe_arch,level_n,'v_add',v_in0,v_in1)
+                #print(f'v most significant:{v_in0},{v_in1}')
 
-        if(u_nonzero_count > 2):
-            (u_in0,u_in1) = find_most_significant_adder(u,u_coe,max_path_col,'col')
-            distribute_pe(u,v,w,u_coe,v_coe,w_coe,w_act,max_path_col,pe_arch,level_n,'u_add',u_in0,u_in1)
-            print(f'u most significant:{u_in0},{u_in1}')
-        if(v_nonzero_count > 2):
-            (v_in0,v_in1) = find_most_significant_adder(v,v_coe,max_path_col,'col')
-            distribute_pe(u,v,w,u_coe,v_coe,w_coe,w_act,max_path_col,pe_arch,level_n,'v_add',v_in0,v_in1)
-            print(f'v most significant:{v_in0},{v_in1}')
+        #if(u_nonzero_count > 2):
+        #    (u_in0,u_in1) = find_most_significant_adder(u,u_coe,max_path_col,'col')
+        #    distribute_pe(u,v,w,u_coe,v_coe,w_coe,w_act,max_path_col,pe_arch,level_n,'u_add',u_in0,u_in1)
+        #    print(f'u most significant:{u_in0},{u_in1}')
+        #if(v_nonzero_count > 2):
+        #    (v_in0,v_in1) = find_most_significant_adder(v,v_coe,max_path_col,'col')
+        #    distribute_pe(u,v,w,u_coe,v_coe,w_coe,w_act,max_path_col,pe_arch,level_n,'v_add',v_in0,v_in1)
+        #    print(f'v most significant:{v_in0},{v_in1}')
+
+        # 此处分配策略以时序优先,只要最关键路径可以运算则直接分配PE，该策略并非面积最优
         if(w_nonzero_count > 2):
             (w_in0,w_in1) = find_most_significant_adder(w_act,w_coe,max_path_row,'row')
             distribute_pe(u,v,w,u_coe,v_coe,w_coe,w_act,max_path_row,pe_arch,level_n,'w_add',w_in0,w_in1)
-            print(f'w most significant:{w_in0},{w_in1}')
+            #print(f'w most significant:{w_in0},{w_in1}')
+        elif w_nonzero_count == 2:
+            w_nonzero_index = nonzero_indices(w_act, 'row', max_path_row)
+            distribute_pe(u,v,w,u_coe,v_coe,w_coe,w_act,max_path_row,pe_arch,level_n,'w_add',w_nonzero_index[0],w_nonzero_index[1])
 
         for i in range(u.shape[1]):
             u_nonzero_index = nonzero_indices(u, 'col', i)
@@ -568,13 +614,13 @@ def print_equations(u, v, w, debug):
                 in1 = v_nonzero_index[1]
                 distribute_pe(u,v,w,u_coe,v_coe,w_coe,w_act,i,pe_arch,level_n,'v_add',in0,in1)
 
-        for i in range(w.shape[0]):
-            w_act_nonzero_index = nonzero_indices(w_act, 'row', i) 
-            w_act_nonzero_count = count_nonzero(w_act, 'row', i) 
-            if(w_act_nonzero_count == 2):
-                in0 = w_act_nonzero_index[0]
-                in1 = w_act_nonzero_index[1]
-                distribute_pe(u,v,w,u_coe,v_coe,w_coe,w_act,i,pe_arch,level_n,'w_add',in0,in1)
+        #for i in range(w.shape[0]):
+        #    w_act_nonzero_index = nonzero_indices(w_act, 'row', i) 
+        #    w_act_nonzero_count = count_nonzero(w_act, 'row', i) 
+        #    if(w_act_nonzero_count == 2):
+        #        in0 = w_act_nonzero_index[0]
+        #        in1 = w_act_nonzero_index[1]
+        #        distribute_pe(u,v,w,u_coe,v_coe,w_coe,w_act,i,pe_arch,level_n,'w_add',in0,in1)
                 #print(f'distribute w_add:{i},{in0},{in1}')
 
         refresh_calculation(u,v,w,u_coe,v_coe,w_coe,w_act,pe_arch,level_n)
@@ -587,21 +633,22 @@ def print_equations(u, v, w, debug):
         #print(f"w_coe:\r\n{w_coe}")
 
     if debug == 'animation' :
-        for i, matrix in enumerate(matrices):
-
-            # 更新图表数据
-            im = axs[i].imshow(matrices[i], cmap=cmap, interpolation='none')
-
-            # 在每个单元格中心添加相应的数字
-            for j in range(len(matrices[i])):
-                for k in range(len(matrices[i][0])):
-                    if texts[i][j][k] is not None:
-                        texts[i][j][k].set_text('')
-                    if matrices[i][j, k] != 0:
-                        texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black')
-                    else:
-                        texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black', bbox=dict(facecolor='white', edgecolor='white'))
         plt.show()
+    #    for i, matrix in enumerate(matrices):
+
+    #        # 更新图表数据
+    #        im = axs[i].imshow(matrices[i], cmap=cmap, interpolation='none')
+
+    #        # 在每个单元格中心添加相应的数字
+    #        for j in range(len(matrices[i])):
+    #            for k in range(len(matrices[i][0])):
+    #                if texts[i][j][k] is not None:
+    #                    texts[i][j][k].set_text('')
+    #                if matrices[i][j, k] != 0:
+    #                    texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black')
+    #                else:
+    #                    texts[i][j][k] = axs[i].text(k, j, matrices[i][j, k], ha='center', va='center', color='black', bbox=dict(facecolor='white', edgecolor='white'))
+    #    plt.show()
 
     level_merge(pe_arch)
 
